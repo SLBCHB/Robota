@@ -45,5 +45,6 @@ public class IntroText : MonoBehaviour
         }
 
         //here load next scene or something
+        SceneController.Instance.LoadScene(GameScene.johny);
     }
 }
