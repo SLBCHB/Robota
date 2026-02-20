@@ -1,43 +1,36 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+
 public enum GameScene
 {
     MainMenu,
     Loading,
-    Intro,
 }
 
 public class SceneController : Singleton<SceneController>
 {
-    [Header("UI Elements")]
-    [SerializeField] private GameObject loadingScreen;
-
     public event Action OnLoadStart;
     public event Action OnLoadComplete;
 
-    protected override void Awake()
-    {
-        base.Awake();
-
-        if (loadingScreen != null)
-            loadingScreen.SetActive(false);
-    }
+    public float LoadingProgress { get; private set; }
 
     public void LoadScene(GameScene sceneToLoad)
     {
-        string sceneName = sceneToLoad.ToString();
-        StartCoroutine(LoadSceneAsync(sceneName));
+        StartCoroutine(LoadSceneSequence(sceneToLoad.ToString()));
     }
-
 
     public void LoadNextScene()
     {
+
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
         if (nextIndex < SceneManager.sceneCountInBuildSettings)
         {
-            StartCoroutine(LoadSceneAsync(nextIndex));
+            string nextScenePath = SceneUtility.GetScenePathByBuildIndex(nextIndex);
+            string nextSceneName = System.IO.Path.GetFileNameWithoutExtension(nextScenePath);
+            StartCoroutine(LoadSceneSequence(nextSceneName));
         }
         else
         {
@@ -45,43 +38,32 @@ public class SceneController : Singleton<SceneController>
         }
     }
 
-    private IEnumerator LoadSceneAsync(string sceneName)
+    private IEnumerator LoadSceneSequence(string targetSceneName)
     {
         OnLoadStart?.Invoke();
+        LoadingProgress = 0f;
 
-        if (loadingScreen != null)
-            loadingScreen.SetActive(true);
+        SceneManager.LoadScene(GameScene.Loading.ToString());
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        yield return null;
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(targetSceneName);
+
+        operation.allowSceneActivation = false;
 
         while (!operation.isDone)
         {
-            // Unity načítá scény do hodnoty 0.9, od 0.9 do 1.0 probíhá aktivace scény
-            // float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            // if (progressBar != null) progressBar.value = progress;
+            LoadingProgress = Mathf.Clamp01(operation.progress / 0.9f);
+
+            if (operation.progress >= 0.9f)
+            {
+                yield return new WaitForSeconds(1f);
+                operation.allowSceneActivation = true;
+            }
 
             yield return null;
         }
 
-        if (loadingScreen != null)
-            loadingScreen.SetActive(false);
-
-        OnLoadComplete?.Invoke();
-    }
-
-    private IEnumerator LoadSceneAsync(int sceneIndex)
-    {
-        OnLoadStart?.Invoke();
-        if (loadingScreen != null) loadingScreen.SetActive(true);
-
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-
-        while (!operation.isDone)
-        {
-            yield return null;
-        }
-
-        if (loadingScreen != null) loadingScreen.SetActive(false);
         OnLoadComplete?.Invoke();
     }
 }
