@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public enum GameScene
 {
     MainMenu,
+    Loading,
+    Intro,
 }
 
 public class SceneController : Singleton<SceneController>
