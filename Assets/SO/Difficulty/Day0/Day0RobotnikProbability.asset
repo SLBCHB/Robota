@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5583be6a86ec094458ff0e95495508e6, type: 3}
+  m_Name: Day0RobotnikProbability
+  m_EditorClassIdentifier: Assembly-CSharp::SORobotnikProbability
+  validCard: 0.8
+  rightAge: 0.9
+  clockInInTime: 0.9
+  clockOutInTime: 0.9
