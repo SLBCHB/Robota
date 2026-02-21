@@ -3,43 +3,55 @@ using UnityEngine.AI;
 
 public class ClickToMove : MonoBehaviour
 {
+    public enum State
+    {
+        Moving,
+        Stopped
+    }
+    public State state;
+
     public Transform goal;
     private NavMeshAgent agent;
     private NavMeshObstacle obstacle;
     public bool reachedGoal = false;
     public bool agentisstoped;
 
-    public float detectionRange = 1.2f;
-    public float startOffset = 0.6f;
+    public float detectionRange = 0.1f;
 
-    private Vector2 lastLookDir = Vector2.right;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         obstacle = GetComponent<NavMeshObstacle>();
-        obstacle.enabled = false;
-
+        state = State.Moving;
     }
 
     void Update()
     {
-        agent.isStopped = agentisstoped;
-
-        if (reachedGoal) return;
-        if (Vector2.Distance(transform.position, goal.position) < 0.1f)
+        if (state == State.Moving)
         {
-            reachedGoal = true;
-            agent.enabled = false;
-            obstacle.enabled = true;
-            agent.isStopped = true;
-            Debug.Log("Goal Reached!");
-            return;
+            agent.SetDestination(goal.position);
+            if (Vector2.Distance(transform.position, goal.position) < detectionRange)
+            {
+                state = State.Stopped;
+                agent.enabled = false;
+                obstacle.enabled = true;
+                Debug.Log("Stopping");
+            }
         }
-        agent.SetDestination(goal.position);
+        else if (state == State.Stopped)
+        {
+            if (Vector2.Distance(transform.position, goal.position) >= detectionRange)
+            {
+                state = State.Moving;
+                obstacle.enabled = false;
+                agent.enabled = true;
+                Debug.Log("Resuming movement.");
+            }
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+   /* private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("FinishLine"))
         {
@@ -47,5 +59,5 @@ public class ClickToMove : MonoBehaviour
             agent.isStopped = true;
             Debug.Log("Goal Reached!");
         }
-    }
+    }*/
 }

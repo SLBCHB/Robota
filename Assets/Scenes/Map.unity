@@ -231,6 +231,10 @@ PrefabInstance:
       value: NavMan
       objectReference: {fileID: 0}
     - target: {fileID: 1183368439438572269, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183368439438572269, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
       propertyPath: m_NavMeshData
       value: 
       objectReference: {fileID: 23800000, guid: 9395455f0c7a51e449f208c125fb76af, type: 2}
@@ -1360,7 +1364,7 @@ Transform:
   m_GameObject: {fileID: 599054874}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.028, y: -2.172, z: 0}
+  m_LocalPosition: {x: -1.028, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1993,7 +1997,7 @@ Transform:
   m_GameObject: {fileID: 1415657542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.287, y: -2.147, z: 0}
+  m_LocalPosition: {x: 0.287, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2055,7 +2059,7 @@ Transform:
   m_GameObject: {fileID: 1505018660}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.538, y: -2.034, z: 0}
+  m_LocalPosition: {x: -2.538, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2244,7 +2248,7 @@ Transform:
   m_GameObject: {fileID: 1675052480}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.811, y: -2.091, z: 0}
+  m_LocalPosition: {x: 1.811, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
