@@ -10,6 +10,7 @@ public enum GameScene
     Loading,
     Intro,
     johny,
+    Map,
 }
 
 public class SceneController : Singleton<SceneController>

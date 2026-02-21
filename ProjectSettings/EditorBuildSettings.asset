@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/johny.unity
     guid: 969eb22d1a6f72d41b228603908fb31e
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: bd8bd10cdce440f4c87029726156c086
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

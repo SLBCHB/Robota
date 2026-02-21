@@ -23,7 +23,7 @@ public class IntroText : MonoBehaviour
         "System integrity verified.",
         "All subsystems are online and stable.",
         "System init completed.",
-        "Finished loading day one",
+        "Finished",
     };
 
 
@@ -57,7 +57,7 @@ public class IntroText : MonoBehaviour
         yield return new WaitForSeconds(2f);
         
         SceneController.Instance._fadeCanvasGroup.alpha = 0f;
-        textDay.text = "Day " + day;
+        textDay.text = "Day " + (day + 1);
         textDay.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(SceneController.Instance.Fade(1f));
@@ -65,7 +65,7 @@ public class IntroText : MonoBehaviour
         textDay.gameObject.SetActive(false);
 
 
-        SceneController.Instance.LoadScene(GameScene.johny);
+        SceneController.Instance.LoadScene(GameScene.Map);
     }
 
 }
