@@ -5,7 +5,9 @@ public class ClickToMove : MonoBehaviour
 {
     public Transform goal;
     private NavMeshAgent agent;
-    private bool reachedGoal = false;
+    private NavMeshObstacle obstacle;
+    public bool reachedGoal = false;
+    public bool agentisstoped;
 
     public float detectionRange = 1.2f;
     public float startOffset = 0.6f;
@@ -15,38 +17,26 @@ public class ClickToMove : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        obstacle = GetComponent<NavMeshObstacle>();
+        obstacle.enabled = false;
+
     }
 
     void Update()
     {
+        agent.isStopped = agentisstoped;
+
         if (reachedGoal) return;
-       
-        if (agent.velocity.sqrMagnitude > 0.01f)
+        if (Vector2.Distance(transform.position, goal.position) < 0.1f)
         {
-            lastLookDir = agent.velocity.normalized;
-        }
-        else if (!agent.isStopped)
-        {
-            
-            lastLookDir = (goal.position - transform.position).normalized;
-        }
-
-        Vector2 rayStart = (Vector2)transform.position + (lastLookDir * startOffset);
-
-        RaycastHit2D hit = Physics2D.Raycast(rayStart, lastLookDir, detectionRange);
-
-        Debug.DrawRay(rayStart, lastLookDir * detectionRange, Color.cyan);
-
-        if (hit.collider != null && hit.collider.gameObject != this.gameObject && hit.collider.CompareTag("agent"))
-        {
+            reachedGoal = true;
+            agent.enabled = false;
+            obstacle.enabled = true;
             agent.isStopped = true;
-            agent.velocity = Vector3.zero;
+            Debug.Log("Goal Reached!");
+            return;
         }
-        else
-        {
-            agent.isStopped = false;
-            agent.SetDestination(goal.position);
-        }
+        agent.SetDestination(goal.position);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
