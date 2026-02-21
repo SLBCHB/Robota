@@ -49,7 +49,7 @@ public class SoundManager : Singleton<SoundManager>
             Debug.LogWarning($"[SoundManager] Music clip '{clipName}' not found!");
         }
     }
-
+    
     public void StopMusic() => musicSource.Stop();
 
 
