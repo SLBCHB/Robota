@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Keycard : CameraObject
 {
+    [Header("Card Properties")]
     public bool isValidCard = true;
 
     private CardScanner _activeScanner;
@@ -15,8 +16,7 @@ public class Keycard : CameraObject
     protected override void Update()
     {
         base.Update();
-        
-        if (!isBeingDragged && _isSnapped)
+        if (!IsBeingDragged && _isSnapped)
         {
             BreakSnap();
         }
@@ -24,7 +24,7 @@ public class Keycard : CameraObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (isBeingDragged && !_isSnapped)
+        if (IsBeingDragged && !_isSnapped)
         {
             if (other.TryGetComponent(out CardScanner scanner))
             {
@@ -91,7 +91,6 @@ public class Keycard : CameraObject
         rb.MoveRotation(_activeScanner.transform.rotation.eulerAngles.z);
 
         float progress = dotProduct / slotLength;
-        
         _activeScanner.CheckSwipeProgress(progress, isValidCard);
     }
 
@@ -100,7 +99,7 @@ public class Keycard : CameraObject
         _isSnapped = false;
         _activeScanner = null;
 
-        if (spriteRenderer != null && isBeingDragged)
+        if (spriteRenderer != null && IsBeingDragged)
         {
             spriteRenderer.sortingOrder = dragSortingOrder;
         }

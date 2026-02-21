@@ -10,6 +10,11 @@ public class CameraController : MonoBehaviour
 {   
     public static CameraController Instance; 
 
+    public enum ToolType { Claw, Scanner, Fingerprint }
+    
+    [Header("Tool Settings")]
+    public ToolType activeTool = ToolType.Claw;
+
     [Header("Camera Settings")] 
     public Vector2 shiftStrength = new Vector2(2f, 2f);
     public float smoothSpeed = 5f;
@@ -19,6 +24,9 @@ public class CameraController : MonoBehaviour
     public GameObject defaultCursorPrefab;
     public GameObject pointerCursorPrefab;
     public string interactableTag = "interactable";
+    
+    [Header("Screen Zones")]
+    public float tableHeightRatio = 0.45f;
 
     public event Action<GameObject> OnCameraClickEvent;
 
@@ -91,23 +99,49 @@ public class CameraController : MonoBehaviour
         UpdateCursorVisuals(_currentMousePos);
     }
 
+    public void SelectClawTool()
+    {
+        activeTool = ToolType.Claw;
+        Debug.Log("Equipped the Claw!");
+    }
+
+    public void SelectScannerTool()
+    {
+        activeTool = ToolType.Scanner;
+        Debug.Log("Equipped the Light Scanner!");
+    }
+    
+    public void ToggleFingerprintTool()
+    { 
+        if (activeTool == ToolType.Fingerprint)
+        {
+            activeTool = ToolType.Claw;
+            Debug.Log("Retracted the Fingerprint Scanner.");
+        }
+        else
+        {
+            activeTool = ToolType.Fingerprint;
+            Debug.Log("Deployed the Fingerprint Scanner!");
+        }
+    }
+
     private void HandleInputClick()
     {
         if (_isOverUI)
         {
             if (_raycastResults.Count > 0)
             {
-                GameObject clickedUI = _raycastResults[0].gameObject;
-                ExecuteEvents.Execute(clickedUI, _pointerEventData, ExecuteEvents.pointerClickHandler);
-                Debug.Log($"Manager: Clicked UI element {clickedUI.name}");
+                Debug.Log($"Manager: Hovering over UI element {_raycastResults[0].gameObject.name}, letting EventSystem click it.");
             }
             return; 
         }
 
         OnCameraClickEvent?.Invoke(_hoveredWorldObject);
-        
+
         if (_hoveredWorldObject != null)
-            Debug.Log($"Manager: Clicked on {_hoveredWorldObject.name}");
+        {
+            Debug.Log($"clicked: {_hoveredWorldObject.name}");
+        }
     }
 
     private void UpdateCursorVisuals(Vector2 mousePos)
@@ -118,8 +152,29 @@ public class CameraController : MonoBehaviour
         bool isOverInteractable = _hoveredWorldObject != null && _hoveredWorldObject.CompareTag(interactableTag);
         bool shouldShowPointer = _isOverUI || isOverInteractable;
 
-        _cursorDefaultRT.gameObject.SetActive(!shouldShowPointer);
-        _cursorPointerRT.gameObject.SetActive(shouldShowPointer);
+        bool isOverTable = (mousePos.y / Screen.height) <= tableHeightRatio;
+
+        if (FingerprintController.Instance != null) 
+        {
+            FingerprintController.Instance.SetActiveState(activeTool == ToolType.Fingerprint);
+        }
+
+        if (isOverTable)
+        {
+            _cursorDefaultRT.gameObject.SetActive(!shouldShowPointer);
+            _cursorPointerRT.gameObject.SetActive(shouldShowPointer);
+        
+            if (ClawController.Instance != null) ClawController.Instance.SetActiveState(false); 
+            if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(false);
+        }
+        else
+        {
+            _cursorDefaultRT.gameObject.SetActive(false);
+            _cursorPointerRT.gameObject.SetActive(false);
+        
+            if (ClawController.Instance != null) ClawController.Instance.SetActiveState(activeTool == ToolType.Claw);
+            if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(activeTool == ToolType.Scanner);
+        }
     }
     
     private Vector2 GetClampedMousePos()

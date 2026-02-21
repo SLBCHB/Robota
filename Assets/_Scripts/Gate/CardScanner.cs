@@ -32,10 +32,7 @@ public class CardScanner : CameraObject
         if (deniedLed != null) deniedLed.SetActive(false);
     }
     
-    public override void OnClick()
-    {
-        Debug.Log("Clicked the scanner, but it's immovable.");
-    }
+    public override void OnClick() { }
 
     public void CheckSwipeProgress(float progressPercentage, bool isValidCard)
     {
