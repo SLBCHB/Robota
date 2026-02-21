@@ -5,9 +5,7 @@ using UnityEngine.InputSystem;
 public class InputManager : Singleton<InputManager>, InputSystem_Actions.IPlayerActions, InputSystem_Actions.IUIActions
 {
     private InputSystem_Actions _inputs;
-
-
-
+    
     protected override void Awake()
     {
         base.Awake();
@@ -59,6 +57,21 @@ public class InputManager : Singleton<InputManager>, InputSystem_Actions.IPlayer
     public void OnInteract(InputAction.CallbackContext context)
     {
         InteractEvent?.Invoke();
+    }
+    
+    public Vector2 MousePosition;
+    public void OnCameraMovement(InputAction.CallbackContext context)
+    {
+        MousePosition = context.ReadValue<Vector2>();
+    }
+
+    public event Action CameraClickEvent;
+    public void OnCameraClick(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            CameraClickEvent?.Invoke();
+        }
     }
 
     public event Action PauseEvent;
