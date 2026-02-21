@@ -26,12 +26,18 @@ public class CameraController : MonoBehaviour
     private CinemachineFollow _followComponent;
     private Vector3 _initialOffset;
 
-    private GameObject _cursorDefault;
-    private GameObject _cursorPointer;
+    private RectTransform _cursorDefaultRT;
+    private RectTransform _cursorPointerRT;
     private Camera _mainCam;
     
     private GraphicRaycaster _uiRaycaster;
     private EventSystem _eventSystem;
+    private PointerEventData _pointerEventData;
+    private List<RaycastResult> _raycastResults = new List<RaycastResult>(); 
+
+    private Vector2 _currentMousePos;
+    private bool _isOverUI;
+    private GameObject _hoveredWorldObject;
 
     private void Awake() => Instance = this;
 
@@ -43,14 +49,26 @@ public class CameraController : MonoBehaviour
         _uiRaycaster = cursorCanvas.GetComponent<GraphicRaycaster>();
         _eventSystem = EventSystem.current;
         
+        _pointerEventData = new PointerEventData(_eventSystem);
+        
         if (_followComponent != null)
             _initialOffset = _followComponent.FollowOffset;
 
         Cursor.visible = false;
         
-        _cursorDefault = Instantiate(defaultCursorPrefab, cursorCanvas.transform);
-        _cursorPointer = Instantiate(pointerCursorPrefab, cursorCanvas.transform);
-        _cursorPointer.SetActive(false);
+        GameObject defCursorObj = Instantiate(defaultCursorPrefab, cursorCanvas.transform);
+        GameObject ptrCursorObj = Instantiate(pointerCursorPrefab, cursorCanvas.transform);
+        
+        _cursorDefaultRT = defCursorObj.GetComponent<RectTransform>();
+        _cursorPointerRT = ptrCursorObj.GetComponent<RectTransform>();
+
+        _cursorDefaultRT.pivot = new Vector2(0f, 1f);
+        _cursorPointerRT.pivot = new Vector2(0f, 1f);
+
+        if (defCursorObj.TryGetComponent(out Image defImg)) defImg.raycastTarget = false;
+        if (ptrCursorObj.TryGetComponent(out Image ptrImg)) ptrImg.raycastTarget = false;
+
+        _cursorPointerRT.gameObject.SetActive(false);
 
         InputManager.Instance.CameraClickEvent += HandleInputClick;
     }
@@ -65,35 +83,43 @@ public class CameraController : MonoBehaviour
     {
         if (_followComponent == null || InputManager.Instance == null) return;
 
-        Vector2 mousePos = GetClampedMousePos();
-        HandleCameraShift(mousePos);
-        UpdateCursorVisuals(mousePos);
+        _currentMousePos = GetClampedMousePos();
+        _isOverUI = CheckUI(_currentMousePos);
+        _hoveredWorldObject = GetWorldObjectUnderMouse(_currentMousePos);
+
+        HandleCameraShift(_currentMousePos);
+        UpdateCursorVisuals(_currentMousePos);
     }
 
     private void HandleInputClick()
     {
-        Vector2 mousePos = GetClampedMousePos();
+        if (_isOverUI)
+        {
+            if (_raycastResults.Count > 0)
+            {
+                GameObject clickedUI = _raycastResults[0].gameObject;
+                ExecuteEvents.Execute(clickedUI, _pointerEventData, ExecuteEvents.pointerClickHandler);
+                Debug.Log($"Manager: Clicked UI element {clickedUI.name}");
+            }
+            return; 
+        }
+
+        OnCameraClickEvent?.Invoke(_hoveredWorldObject);
         
-        if (CheckUI(mousePos)) return;
-        GameObject worldObject = GetWorldObjectUnderMouse(mousePos);
-        OnCameraClickEvent?.Invoke(worldObject);
-        
-        if (worldObject != null)
-            Debug.Log($"Manager: Clicked on {worldObject.name}");
+        if (_hoveredWorldObject != null)
+            Debug.Log($"Manager: Clicked on {_hoveredWorldObject.name}");
     }
 
     private void UpdateCursorVisuals(Vector2 mousePos)
     {
-        _cursorDefault.transform.position = mousePos;
-        _cursorPointer.transform.position = mousePos;
+        _cursorDefaultRT.position = mousePos;
+        _cursorPointerRT.position = mousePos;
 
-        bool isOverUI = CheckUI(mousePos);
-        GameObject worldObject = GetWorldObjectUnderMouse(mousePos);
-        bool isOverInteractable = worldObject != null && worldObject.CompareTag(interactableTag);
+        bool isOverInteractable = _hoveredWorldObject != null && _hoveredWorldObject.CompareTag(interactableTag);
+        bool shouldShowPointer = _isOverUI || isOverInteractable;
 
-        bool shouldShowPointer = isOverUI || isOverInteractable;
-        _cursorDefault.SetActive(!shouldShowPointer);
-        _cursorPointer.SetActive(shouldShowPointer);
+        _cursorDefaultRT.gameObject.SetActive(!shouldShowPointer);
+        _cursorPointerRT.gameObject.SetActive(shouldShowPointer);
     }
     
     private Vector2 GetClampedMousePos()
@@ -113,16 +139,12 @@ public class CameraController : MonoBehaviour
     private bool CheckUI(Vector2 mousePos)
     {
         if (_eventSystem == null) return false;
-        PointerEventData eventData = new PointerEventData(_eventSystem) { position = mousePos };
-        List<RaycastResult> results = new List<RaycastResult>();
-        _uiRaycaster.Raycast(eventData, results);
         
-        foreach (var result in results)
-        {
-            if (result.gameObject != _cursorDefault && result.gameObject != _cursorPointer)
-                return true;
-        }
-        return false;
+        _pointerEventData.position = mousePos;
+        _raycastResults.Clear();
+        _uiRaycaster.Raycast(_pointerEventData, _raycastResults);
+        
+        return _raycastResults.Count > 0;
     }
 
     private GameObject GetWorldObjectUnderMouse(Vector2 mousePos)

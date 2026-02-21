@@ -6,6 +6,7 @@ public abstract class CameraObject : MonoBehaviour
     public float dragResponsiveness = 15f;
     public float maxDragVelocity = 50f;
     public float tableFriction = 5f;
+    public bool isMovable;
 
     [Header("Rotation & Swinging")]
     public float swingSensitivity = 2f;
@@ -57,7 +58,7 @@ public abstract class CameraObject : MonoBehaviour
 
     private void HandleGlobalClick(GameObject clickedObject)
     {
-        if (clickedObject == gameObject)
+        if (clickedObject == gameObject && isMovable)
         {
             isBeingDragged = true;
             rb.linearDamping = 10f; 
@@ -94,7 +95,7 @@ public abstract class CameraObject : MonoBehaviour
         }
     }
 
-    private void MoveWithPhysics()
+    protected virtual void MoveWithPhysics()
     {
         Vector2 screenPos = InputManager.Instance.MousePosition;
         float dist = Mathf.Abs(mainCam.transform.position.z);
@@ -107,7 +108,7 @@ public abstract class CameraObject : MonoBehaviour
         rb.linearVelocity = Vector2.ClampMagnitude(newVelocity, maxDragVelocity); 
     }
 
-    private void HandleSwinging()
+    protected virtual void HandleSwinging()
     {
         float targetAngle = -rb.linearVelocity.x * swingSensitivity;
         targetAngle = Mathf.Clamp(targetAngle, -maxSwingAngle, maxSwingAngle);
