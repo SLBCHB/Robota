@@ -543,8 +543,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 323, y: 48}
-  m_SizeDelta: {x: 200, y: 53.0626}
+  m_AnchoredPosition: {x: 497.065, y: 46}
+  m_SizeDelta: {x: 293.2102, y: 57.063}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410896639
 MonoBehaviour:
@@ -632,7 +632,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -156.1925, w: 0}
+  m_margin: {x: 0, y: 0, z: 2.5042725, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1166,8 +1166,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 115, y: 44}
-  m_SizeDelta: {x: 119.8059, y: 53.063}
+  m_AnchoredPosition: {x: 199.98242, y: 47.4}
+  m_SizeDelta: {x: 289.7711, y: 53.063}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &962385933
 MonoBehaviour:
@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -66.31897, w: 0}
+  m_margin: {x: 0, y: 0, z: 1.4221191, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2182,52 +2182,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!1 &1668917187
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1668917189}
-  - component: {fileID: 1668917188}
-  m_Layer: 0
-  m_Name: RobotnikGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1668917188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668917187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e005bfb25e5ab429972e468f172cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RobotnikGenerator
-  RobotnikPrefab: {fileID: 1102471564082392696, guid: d5c716a22ad12cc4cb4c7aca73ddc6b6, type: 3}
-  robotnikParent: {fileID: 1866287606}
---- !u!4 &1668917189
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668917187}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16351, y: -0.06163, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1825459697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,57 +2268,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 20924679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1918941206
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1918941208}
-  - component: {fileID: 1918941207}
-  m_Layer: 0
-  m_Name: RobotnikClockInLine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1918941207
+--- !u!114 &1918941207 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7987537695877349720, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+  m_PrefabInstance: {fileID: 858360063149744239}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918941206}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 823d91a2e502dd8429f49dd47e59c299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RobotnikClockInLine
-  spaceBetween: 2
-  speed: 10
-  lineStop: {fileID: 1203295824}
-  lineEnd: {fileID: 847546689}
-  infoDisplayer: {fileID: 542844632}
-  onStop: 0
-  currentOnStop: -1
---- !u!4 &1918941208
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918941206}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.68049, y: 1.5995, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1968968872
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,53 +2503,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065911772}
   m_CullTransparentMesh: 1
---- !u!1 &2084909968
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2084909970}
-  - component: {fileID: 2084909969}
-  m_Layer: 0
-  m_Name: DifficultyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2084909969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084909968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63472f5d54f6244f9ccc7020d233063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
-  days:
-  - {fileID: 11400000, guid: 675d683e7e70076479528f25a71845cb, type: 2}
-  dayCounter: 0
---- !u!4 &2084909970
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084909968}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.42741, y: 0.74016, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2104601895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,6 +2777,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140914538}
   m_CullTransparentMesh: 1
+--- !u!1001 &858360063149744239
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5166161218187490071, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_Name
+      value: LineControllers
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1243.6115
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 322.78418
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014330984793691072, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568138277025391088, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: robotnikParent
+      value: 
+      objectReference: {fileID: 1866287606}
+    - target: {fileID: 7987537695877349720, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: lineEnd
+      value: 
+      objectReference: {fileID: 847546689}
+    - target: {fileID: 7987537695877349720, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: lineStop
+      value: 
+      objectReference: {fileID: 1203295824}
+    - target: {fileID: 7987537695877349720, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
+      propertyPath: infoDisplayer
+      value: 
+      objectReference: {fileID: 542844632}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f4c8b49ab095f3d41af1bbf43b2e433e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2919,7 +2859,5 @@ SceneRoots:
   - {fileID: 1968968874}
   - {fileID: 702090007}
   - {fileID: 534661210}
-  - {fileID: 1668917189}
-  - {fileID: 2084909970}
-  - {fileID: 1918941208}
   - {fileID: 1235577391}
+  - {fileID: 858360063149744239}
