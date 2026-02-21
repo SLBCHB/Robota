@@ -10,5 +10,8 @@ using UnityEngine;
 public class SORobotnikProbability: ScriptableObject
 {
     public float validCard;
+    public float rightAge;
+    public float clockInInTime;
+    public float clockOutInTime;
 }
 

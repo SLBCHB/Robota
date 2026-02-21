@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0e122663d746409b50c775ef5a079, type: 3}
+  m_Name: Day1
+  m_EditorClassIdentifier: Assembly-CSharp::SODifficulty
+  day: 1
+  RobotnikCount: 4
+  currentDateEditor: {x: 2030, y: 1, z: 1}
+  currentTimeEditor: {x: 6, y: 0}
+  robotnikProbability: {fileID: 11400000, guid: d5d58c193c086b1419e1737e576a4ffd, type: 2}
+  robotnikProperitesCap: {fileID: 11400000, guid: 29c6d18c309dc4e41a50060592ef9638, type: 2}
