@@ -73,6 +73,8 @@ public class InputManager : Singleton<InputManager>, InputSystem_Actions.IPlayer
             CameraClickEvent?.Invoke();
         }
     }
+    
+    public bool IsLeftClickHeld => Mouse.current.leftButton.isPressed;
 
     public event Action PauseEvent;
     public void OnPause(InputAction.CallbackContext context)
