@@ -10,6 +10,12 @@ public class CameraController : MonoBehaviour
 {   
     public static CameraController Instance; 
 
+    // NEW: The list of possible tools
+    public enum ToolType { Claw, Scanner }
+    
+    [Header("Tool Settings")]
+    public ToolType activeTool = ToolType.Claw; // Defaults to Claw
+
     [Header("Camera Settings")] 
     public Vector2 shiftStrength = new Vector2(2f, 2f);
     public float smoothSpeed = 5f;
@@ -19,6 +25,9 @@ public class CameraController : MonoBehaviour
     public GameObject defaultCursorPrefab;
     public GameObject pointerCursorPrefab;
     public string interactableTag = "interactable";
+    
+    [Header("Screen Zones")]
+    public float tableHeightRatio = 0.45f;
 
     public event Action<GameObject> OnCameraClickEvent;
 
@@ -91,6 +100,20 @@ public class CameraController : MonoBehaviour
         UpdateCursorVisuals(_currentMousePos);
     }
 
+    // --- NEW PUBLIC METHODS FOR YOUR UI BUTTONS ---
+    public void SelectClawTool()
+    {
+        activeTool = ToolType.Claw;
+        Debug.Log("Equipped the Claw!");
+    }
+
+    public void SelectScannerTool()
+    {
+        activeTool = ToolType.Scanner;
+        Debug.Log("Equipped the Light Scanner!");
+    }
+    // ----------------------------------------------
+
     private void HandleInputClick()
     {
         if (_isOverUI)
@@ -105,9 +128,11 @@ public class CameraController : MonoBehaviour
         }
 
         OnCameraClickEvent?.Invoke(_hoveredWorldObject);
-        
+
         if (_hoveredWorldObject != null)
-            Debug.Log($"Manager: Clicked on {_hoveredWorldObject.name}");
+        {
+            Debug.Log($"clicked: {_hoveredWorldObject.name}");
+        }
     }
 
     private void UpdateCursorVisuals(Vector2 mousePos)
@@ -118,8 +143,37 @@ public class CameraController : MonoBehaviour
         bool isOverInteractable = _hoveredWorldObject != null && _hoveredWorldObject.CompareTag(interactableTag);
         bool shouldShowPointer = _isOverUI || isOverInteractable;
 
-        _cursorDefaultRT.gameObject.SetActive(!shouldShowPointer);
-        _cursorPointerRT.gameObject.SetActive(shouldShowPointer);
+        bool isOverTable = (mousePos.y / Screen.height) <= tableHeightRatio;
+
+        if (isOverTable)
+        {
+            // --- TABLE ZONE ---
+            _cursorDefaultRT.gameObject.SetActive(!shouldShowPointer);
+            _cursorPointerRT.gameObject.SetActive(shouldShowPointer);
+        
+            if (ClawController.Instance != null) 
+                ClawController.Instance.SetActiveState(false); 
+                
+            if (ScannerController.Instance != null)
+                ScannerController.Instance.SetActiveState(false);
+        }
+        else
+        {
+            // --- WINDOW ZONE ---
+            _cursorDefaultRT.gameObject.SetActive(false);
+            _cursorPointerRT.gameObject.SetActive(false);
+        
+            if (activeTool == ToolType.Claw)
+            {
+                if (ClawController.Instance != null) ClawController.Instance.SetActiveState(true);
+                if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(false);
+            }
+            else if (activeTool == ToolType.Scanner)
+            {
+                if (ClawController.Instance != null) ClawController.Instance.SetActiveState(false);
+                if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(true);
+            }
+        }
     }
     
     private Vector2 GetClampedMousePos()

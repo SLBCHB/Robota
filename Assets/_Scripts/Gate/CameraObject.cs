@@ -1,12 +1,12 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class CameraObject : MonoBehaviour
 {
     [Header("Physics & Dragging")]
     public float dragResponsiveness = 15f;
     public float maxDragVelocity = 50f;
     public float tableFriction = 5f;
-    public bool isMovable;
 
     [Header("Rotation & Swinging")]
     public float swingSensitivity = 2f;
@@ -14,21 +14,24 @@ public abstract class CameraObject : MonoBehaviour
     public float selfRightingSpeed = 5f;
 
     [Header("Visuals")]
-    [Tooltip("The sorting order applied when the object is picked up.")]
     public int dragSortingOrder = 999;
 
     protected Rigidbody2D rb;
     protected Camera mainCam;
-    protected bool isBeingDragged = false;
+    
+    // NEW PROPERTY: Capitalized so other scripts can read it safely
+    public bool IsBeingDragged { get; protected set; }
     
     protected SpriteRenderer spriteRenderer;
     private int defaultSortingOrder;
     private float defaultRotation;
+    
+    
 
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
         mainCam = Camera.main;
 
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -41,7 +44,7 @@ public abstract class CameraObject : MonoBehaviour
 
         if (spriteRenderer != null)
         {
-            defaultSortingOrder = spriteRenderer.sortingOrder;
+            defaultSortingOrder = spriteRenderer.sortingOrder; 
         }
 
         if (CameraController.Instance != null)
@@ -58,11 +61,13 @@ public abstract class CameraObject : MonoBehaviour
 
     private void HandleGlobalClick(GameObject clickedObject)
     {
-        if (clickedObject == gameObject && isMovable)
+        if (ClawController.Instance != null) ClawController.Instance.SetGrabState(true);
+
+        if (clickedObject == gameObject)
         {
-            isBeingDragged = true;
+            IsBeingDragged = true;
             rb.linearDamping = 10f; 
-            
+        
             if (spriteRenderer != null) spriteRenderer.sortingOrder = dragSortingOrder;
             
             OnClick(); 
@@ -71,20 +76,23 @@ public abstract class CameraObject : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (!isBeingDragged) return;
+        if (!IsBeingDragged) return;
 
         if (!InputManager.Instance.IsLeftClickHeld) 
         {
-            isBeingDragged = false;
+            IsBeingDragged = false;
             rb.linearDamping = tableFriction; 
-            
+        
             if (spriteRenderer != null) spriteRenderer.sortingOrder = defaultSortingOrder;
+        
+            // NEW: Tell the claw to release!
+            if (ClawController.Instance != null) ClawController.Instance.SetGrabState(false);
         }
     }
 
     protected virtual void FixedUpdate()
     {
-        if (isBeingDragged)
+        if (IsBeingDragged)
         {
             MoveWithPhysics();
             HandleSwinging();
@@ -124,6 +132,6 @@ public abstract class CameraObject : MonoBehaviour
         rb.MoveRotation(uprightAngle);
         rb.angularVelocity = Mathf.Lerp(rb.angularVelocity, 0f, Time.fixedDeltaTime * selfRightingSpeed);
     }
-
+    
     public abstract void OnClick();
 }
