@@ -26,15 +26,7 @@ public class DecisionZone : MonoBehaviour
     {
         if (collision.TryGetComponent(out SubjectEntity subject))
         {
-            if (subject.IsProcessed)
-            {
-                return; 
-            }
-            
-            if (subject.IsBeingDragged)
-            {
-                return;
-            }
+            if (subject.IsProcessed || subject.IsBeingDragged || subject.IsSliding) return;
 
             ProcessSubject(subject);
         }
@@ -48,6 +40,8 @@ public class DecisionZone : MonoBehaviour
         Rigidbody2D rb = subject.GetComponent<Rigidbody2D>();
         rb.linearDamping = 0f;
         rb.linearVelocity = exitVelocity;
+
+        Debug.Log($"<color=orange>✅ {subject.gameObject.name} WAS PROCESSED BY {zoneName}!</color>");
         
         OnSubjectProcessed?.Invoke(subject); 
     }

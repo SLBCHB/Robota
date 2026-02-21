@@ -15,6 +15,7 @@ public class SubjectEntity : CameraObject
     public Transform grabPoint;
 
     public bool IsProcessed { get; set; }
+    public bool IsSliding => _isReturning;
     
     private bool _isReturning = false; 
     private Vector2 _returnVelocity; 
@@ -60,7 +61,8 @@ public class SubjectEntity : CameraObject
 
         if (_isReturning)
         {
-            rb.position = Vector2.SmoothDamp(rb.position, basePosition.position, ref _returnVelocity, returnSmoothTime, maxReturnSpeed, Time.fixedDeltaTime);
+            Vector2 nextPos = Vector2.SmoothDamp(rb.position, basePosition.position, ref _returnVelocity, returnSmoothTime, maxReturnSpeed, Time.fixedDeltaTime);
+            rb.MovePosition(nextPos);
 
             if (Vector2.Distance(rb.position, basePosition.position) < 0.05f)
             {
@@ -103,5 +105,21 @@ public class SubjectEntity : CameraObject
         Vector2 newVelocity = (targetPosition - rb.position) * (dragResponsiveness * 1.5f);
 
         rb.linearVelocity = Vector2.ClampMagnitude(newVelocity, maxDragVelocity); 
+    }
+    
+    public void MoveToNewSpot(Transform newSpot)
+    {
+        basePosition = newSpot;
+        _isReturning = true; 
+        
+        if (rb != null) rb.WakeUp(); 
+    }
+
+    public void SetInteractable(bool isInteractable)
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = isInteractable;
+
+        gameObject.tag = isInteractable ? "interactable" : "Untagged";
     }
 }
