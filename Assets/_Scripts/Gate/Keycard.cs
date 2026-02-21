@@ -16,8 +16,6 @@ public class Keycard : CameraObject
     protected override void Update()
     {
         base.Update();
-        
-        // FIXED: Capitalized IsBeingDragged
         if (!IsBeingDragged && _isSnapped)
         {
             BreakSnap();
@@ -26,7 +24,6 @@ public class Keycard : CameraObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // FIXED: Capitalized IsBeingDragged
         if (IsBeingDragged && !_isSnapped)
         {
             if (other.TryGetComponent(out CardScanner scanner))
@@ -102,7 +99,6 @@ public class Keycard : CameraObject
         _isSnapped = false;
         _activeScanner = null;
 
-        // FIXED: Capitalized IsBeingDragged
         if (spriteRenderer != null && IsBeingDragged)
         {
             spriteRenderer.sortingOrder = dragSortingOrder;

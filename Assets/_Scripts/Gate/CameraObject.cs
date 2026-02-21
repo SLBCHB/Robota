@@ -19,7 +19,6 @@ public abstract class CameraObject : MonoBehaviour
     protected Rigidbody2D rb;
     protected Camera mainCam;
     
-    // NEW PROPERTY: Capitalized so other scripts can read it safely
     public bool IsBeingDragged { get; protected set; }
     
     protected SpriteRenderer spriteRenderer;
@@ -85,7 +84,6 @@ public abstract class CameraObject : MonoBehaviour
         
             if (spriteRenderer != null) spriteRenderer.sortingOrder = defaultSortingOrder;
         
-            // NEW: Tell the claw to release!
             if (ClawController.Instance != null) ClawController.Instance.SetGrabState(false);
         }
     }

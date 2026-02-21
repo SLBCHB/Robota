@@ -10,11 +10,10 @@ public class CameraController : MonoBehaviour
 {   
     public static CameraController Instance; 
 
-    // NEW: The list of possible tools
     public enum ToolType { Claw, Scanner }
     
     [Header("Tool Settings")]
-    public ToolType activeTool = ToolType.Claw; // Defaults to Claw
+    public ToolType activeTool = ToolType.Claw;
 
     [Header("Camera Settings")] 
     public Vector2 shiftStrength = new Vector2(2f, 2f);
@@ -100,7 +99,6 @@ public class CameraController : MonoBehaviour
         UpdateCursorVisuals(_currentMousePos);
     }
 
-    // --- NEW PUBLIC METHODS FOR YOUR UI BUTTONS ---
     public void SelectClawTool()
     {
         activeTool = ToolType.Claw;
@@ -112,7 +110,6 @@ public class CameraController : MonoBehaviour
         activeTool = ToolType.Scanner;
         Debug.Log("Equipped the Light Scanner!");
     }
-    // ----------------------------------------------
 
     private void HandleInputClick()
     {

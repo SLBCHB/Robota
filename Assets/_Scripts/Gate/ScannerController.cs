@@ -18,7 +18,6 @@ public class ScannerController : MonoBehaviour
     private Camera _mainCam;
     private bool _isActive = false;
     
-    // An array to hold ALL lights under this pivot
     private Light2D[] _scannerLights;
 
     private GameObject _currentlyHoveredPart;
@@ -27,7 +26,6 @@ public class ScannerController : MonoBehaviour
     private void Awake() 
     {
         Instance = this;
-        // Automatically find all Light2D components on this object AND its children!
         _scannerLights = GetComponentsInChildren<Light2D>(true);
     }
 
@@ -56,14 +54,11 @@ public class ScannerController : MonoBehaviour
         float dist = Mathf.Abs(_mainCam.transform.position.z);
         Vector3 worldPos = _mainCam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, dist));
         
-        // 1. Find the exact direction from the pivot to the mouse
         Vector2 direction = (Vector2)worldPos - (Vector2)transform.position;
         
-        // 2. Calculate the exact angle required to look at that point
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         targetAngle += angleOffset;
 
-        // 3. Smoothly rotate towards the mouse
         Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
@@ -115,7 +110,6 @@ public class ScannerController : MonoBehaviour
     {
         _isActive = active;
         
-        // Loop through every light we found and turn them on/off together
         if (_scannerLights != null)
         {
             foreach (var light in _scannerLights)
