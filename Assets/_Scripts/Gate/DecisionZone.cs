@@ -10,6 +10,7 @@ public class DecisionZone : MonoBehaviour
 
     [Header("Events")]
     public UnityEvent<SubjectEntity> OnSubjectProcessed;
+    public UnityEvent OnZoneTriggered;
     
     private void Start()
     {
@@ -44,5 +45,6 @@ public class DecisionZone : MonoBehaviour
         Debug.Log($"<color=orange>✅ {subject.gameObject.name} WAS PROCESSED BY {zoneName}!</color>");
         
         OnSubjectProcessed?.Invoke(subject); 
+        OnZoneTriggered?.Invoke();
     }
 }
