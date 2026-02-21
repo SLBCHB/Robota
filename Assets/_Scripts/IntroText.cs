@@ -6,7 +6,10 @@ using System.Collections;
 public class IntroText : MonoBehaviour
 {
     public TMP_Text text;
+    public TMP_Text textDay;
     private string data;
+    private int day;
+
 
     private string[] messages =
     {
@@ -20,22 +23,26 @@ public class IntroText : MonoBehaviour
         "System integrity verified.",
         "All subsystems are online and stable.",
         "System init completed.",
-        "kokoko",
+        "Finished loading day one",
     };
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        day = DifficultyManager.Instance.dayCounter;
         data = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         text.text += "\n[  <color=green>OK</color>  ][" + data + "]System init";
 
         StartCoroutine(UpdateText());
 
+
+
     }
 
     IEnumerator UpdateText()
     {
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < messages.Length; i++)
         {
             int waitTime = UnityEngine.Random.Range(3, 15);
@@ -44,7 +51,21 @@ public class IntroText : MonoBehaviour
             yield return new WaitForSeconds(waitTime/10);
         }
 
-        //here load next scene or something
+        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(SceneController.Instance.Fade(1f));
+        text.gameObject.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        
+        SceneController.Instance._fadeCanvasGroup.alpha = 0f;
+        textDay.text = "Day " + day;
+        textDay.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(SceneController.Instance.Fade(1f));
+        yield return new WaitForSeconds(1f);
+        textDay.gameObject.SetActive(false);
+
+
         SceneController.Instance.LoadScene(GameScene.johny);
     }
+
 }

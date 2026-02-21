@@ -20,7 +20,7 @@ public class SceneController : Singleton<SceneController>
     public float LoadingProgress { get; private set; }
 
     // Fade Settings
-    private CanvasGroup _fadeCanvasGroup;
+    public CanvasGroup _fadeCanvasGroup;
     private float _fadeDuration = 0.5f;
 
     protected override void Awake()
@@ -116,7 +116,7 @@ public class SceneController : Singleton<SceneController>
         OnLoadComplete?.Invoke();
     }
 
-    private IEnumerator Fade(float targetAlpha)
+    public IEnumerator Fade(float targetAlpha)
     {
         _fadeCanvasGroup.blocksRaycasts = true;
         float startAlpha = _fadeCanvasGroup.alpha;
