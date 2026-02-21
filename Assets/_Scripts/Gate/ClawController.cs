@@ -22,7 +22,7 @@ public class ClawController : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private Camera _mainCam;
-    private bool _isActive = false; // Tracks if the mouse is in the window area
+    private bool _isActive = false;
 
     private void Awake() => Instance = this;
 

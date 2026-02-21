@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 {   
     public static CameraController Instance; 
 
-    public enum ToolType { Claw, Scanner }
+    public enum ToolType { Claw, Scanner, Fingerprint }
     
     [Header("Tool Settings")]
     public ToolType activeTool = ToolType.Claw;
@@ -110,6 +110,20 @@ public class CameraController : MonoBehaviour
         activeTool = ToolType.Scanner;
         Debug.Log("Equipped the Light Scanner!");
     }
+    
+    public void ToggleFingerprintTool()
+    { 
+        if (activeTool == ToolType.Fingerprint)
+        {
+            activeTool = ToolType.Claw;
+            Debug.Log("Retracted the Fingerprint Scanner.");
+        }
+        else
+        {
+            activeTool = ToolType.Fingerprint;
+            Debug.Log("Deployed the Fingerprint Scanner!");
+        }
+    }
 
     private void HandleInputClick()
     {
@@ -117,9 +131,7 @@ public class CameraController : MonoBehaviour
         {
             if (_raycastResults.Count > 0)
             {
-                GameObject clickedUI = _raycastResults[0].gameObject;
-                ExecuteEvents.Execute(clickedUI, _pointerEventData, ExecuteEvents.pointerClickHandler);
-                Debug.Log($"Manager: Clicked UI element {clickedUI.name}");
+                Debug.Log($"Manager: Hovering over UI element {_raycastResults[0].gameObject.name}, letting EventSystem click it.");
             }
             return; 
         }
@@ -142,34 +154,26 @@ public class CameraController : MonoBehaviour
 
         bool isOverTable = (mousePos.y / Screen.height) <= tableHeightRatio;
 
+        if (FingerprintController.Instance != null) 
+        {
+            FingerprintController.Instance.SetActiveState(activeTool == ToolType.Fingerprint);
+        }
+
         if (isOverTable)
         {
-            // --- TABLE ZONE ---
             _cursorDefaultRT.gameObject.SetActive(!shouldShowPointer);
             _cursorPointerRT.gameObject.SetActive(shouldShowPointer);
         
-            if (ClawController.Instance != null) 
-                ClawController.Instance.SetActiveState(false); 
-                
-            if (ScannerController.Instance != null)
-                ScannerController.Instance.SetActiveState(false);
+            if (ClawController.Instance != null) ClawController.Instance.SetActiveState(false); 
+            if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(false);
         }
         else
         {
-            // --- WINDOW ZONE ---
             _cursorDefaultRT.gameObject.SetActive(false);
             _cursorPointerRT.gameObject.SetActive(false);
         
-            if (activeTool == ToolType.Claw)
-            {
-                if (ClawController.Instance != null) ClawController.Instance.SetActiveState(true);
-                if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(false);
-            }
-            else if (activeTool == ToolType.Scanner)
-            {
-                if (ClawController.Instance != null) ClawController.Instance.SetActiveState(false);
-                if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(true);
-            }
+            if (ClawController.Instance != null) ClawController.Instance.SetActiveState(activeTool == ToolType.Claw);
+            if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(activeTool == ToolType.Scanner);
         }
     }
     
