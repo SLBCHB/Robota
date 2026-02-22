@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5752372612648378839, guid: d293428d8190c8c42aea32ca25f2e902, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -183,7 +183,6 @@ MonoBehaviour:
   dragResponsiveness: 15
   maxDragVelocity: 70
   tableFriction: 10
-  isMovable: 1
   swingSensitivity: 2
   maxSwingAngle: 45
   selfRightingSpeed: 5

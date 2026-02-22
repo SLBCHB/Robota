@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: 6aea61446dc000444914801fe87a54f6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5960511037448888903
+    second: keycard_0
+  - first:
+      213: -8253505599346797294
+    second: keycard_1
+  - first:
+      213: 726906479890298208
+    second: keycard_2
+  - first:
+      213: -8774647995042611741
+    second: keycard_3
+  - first:
+      213: 8775001649311124411
+    second: keycard_4
+  - first:
+      213: 7259051167952610342
+    second: keycard_5
+  - first:
+      213: 6665701717844186277
+    second: keycard_6
+  - first:
+      213: 3113960192532196466
+    second: keycard_7
+  - first:
+      213: 2556137755804011674
+    second: keycard_8
+  - first:
+      213: -4129726407935214190
+    second: keycard_9
+  - first:
+      213: -8563116846159824819
+    second: keycard_10
+  - first:
+      213: -3101535187357141483
+    second: keycard_11
+  - first:
+      213: 2475384319064430140
+    second: keycard_12
+  - first:
+      213: -6678666844500020620
+    second: keycard_13
+  - first:
+      213: -7936192232822867668
+    second: keycard_14
+  - first:
+      213: -1799681621404585934
+    second: keycard_15
+  - first:
+      213: 4894821764626754323
+    second: keycard_16
+  - first:
+      213: -2252177666874028912
+    second: keycard_17
+  - first:
+      213: 7075440183286140946
+    second: keycard_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: keycard_0
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 2162
+        width: 435
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd5015aac2084da0800000000000000
+      internalID: -5960511037448888903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_1
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 2114
+        width: 472
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2159c37e268a57d80800000000000000
+      internalID: -8253505599346797294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_2
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 2132
+        width: 931
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0657ac6979d761a00800000000000000
+      internalID: 726906479890298208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_3
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 1525
+        width: 45
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed346a73203a3680800000000000000
+      internalID: -8774647995042611741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_4
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 396
+        width: 2924
+        height: 1719
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb08a2128117c970800000000000000
+      internalID: 8775001649311124411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_5
+      rect:
+        serializedVersion: 2
+        x: 3488
+        y: 1714
+        width: 32
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6242330c3945db460800000000000000
+      internalID: 7259051167952610342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_6
+      rect:
+        serializedVersion: 2
+        x: 3504
+        y: 1096
+        width: 29
+        height: 658
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a450de5564518c50800000000000000
+      internalID: 6665701717844186277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_7
+      rect:
+        serializedVersion: 2
+        x: 3512
+        y: 1725
+        width: 47
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ca690fb42073b20800000000000000
+      internalID: 3113960192532196466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_8
+      rect:
+        serializedVersion: 2
+        x: 3541
+        y: 1155
+        width: 33
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9c89a3feb9397320800000000000000
+      internalID: 2556137755804011674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_9
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 593
+        width: 18
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29db87356b340b6c0800000000000000
+      internalID: -4129726407935214190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_10
+      rect:
+        serializedVersion: 2
+        x: 3529
+        y: 557
+        width: 23
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d48fa760992b92980800000000000000
+      internalID: -8563116846159824819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_11
+      rect:
+        serializedVersion: 2
+        x: 3594
+        y: 588
+        width: 28
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516f3330e2225f4d0800000000000000
+      internalID: -3101535187357141483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_12
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 391
+        width: 646
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36586c4ce45a5220800000000000000
+      internalID: 2475384319064430140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_13
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 387
+        width: 472
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 472b568d3eb9053a0800000000000000
+      internalID: -6678666844500020620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_14
+      rect:
+        serializedVersion: 2
+        x: 2339
+        y: 382
+        width: 1037
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c29f065463bfcd190800000000000000
+      internalID: -7936192232822867668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_15
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 320
+        width: 591
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2307167b91f3607e0800000000000000
+      internalID: -1799681621404585934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_16
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 314
+        width: 450
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31bad670676ede340800000000000000
+      internalID: 4894821764626754323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_17
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 258
+        width: 208
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09cc7e23858aeb0e0800000000000000
+      internalID: -2252177666874028912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keycard_18
+      rect:
+        serializedVersion: 2
+        x: 2141
+        y: 0
+        width: 1098
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2109b420c53013260800000000000000
+      internalID: 7075440183286140946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      keycard_0: -5960511037448888903
+      keycard_1: -8253505599346797294
+      keycard_10: -8563116846159824819
+      keycard_11: -3101535187357141483
+      keycard_12: 2475384319064430140
+      keycard_13: -6678666844500020620
+      keycard_14: -7936192232822867668
+      keycard_15: -1799681621404585934
+      keycard_16: 4894821764626754323
+      keycard_17: -2252177666874028912
+      keycard_18: 7075440183286140946
+      keycard_2: 726906479890298208
+      keycard_3: -8774647995042611741
+      keycard_4: 8775001649311124411
+      keycard_5: 7259051167952610342
+      keycard_6: 6665701717844186277
+      keycard_7: 3113960192532196466
+      keycard_8: 2556137755804011674
+      keycard_9: -4129726407935214190
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

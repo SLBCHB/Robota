@@ -11,27 +11,40 @@ public class SubjectManager : MonoBehaviour
     [Header("Spawning Setup")]
     public GameObject[] subjectPrefabs; 
 
+    [Header("Sorting Orders")]
+    [Tooltip("Sorting order for the person currently at the desk")]
+    public int activeSortingOrder = 0;
+    [Tooltip("Sorting order for the people waiting in line")]
+    public int queueSortingOrder = 12;
+
     [Header("Timing")]
     public float delayBeforeMove = 1.0f;
     public float destroyDelay = 3.0f; 
 
     private SubjectEntity _activeSubject;
     private List<SubjectEntity> _queueList = new List<SubjectEntity>();
+    private GameObject _activeCard;
 
     private void Start()
     {
         _activeSubject = SpawnSubjectAt(activeSpot);
-        if (_activeSubject != null) _activeSubject.SetInteractable(true);
+        if (_activeSubject != null) 
+        {
+            _activeSubject.SetInteractable(true);
+            SetSortingOrder(_activeSubject, activeSortingOrder); // Active spot sorting
+        }
 
         for (int i = 0; i < queueSpots.Length; i++)
         {
             SubjectEntity qPerson = SpawnSubjectAt(queueSpots[i]);
-            if (qPerson != null) qPerson.SetInteractable(false); 
+            if (qPerson != null) 
+            {
+                qPerson.SetInteractable(false); 
+                SetSortingOrder(qPerson, queueSortingOrder); // Queue spot sorting
+            }
             _queueList.Add(qPerson);
         }
     }
-
-    private GameObject _activeCard;
 
     public void HandleSubjectProcessed(SubjectEntity processedSubject)
     {
@@ -62,6 +75,9 @@ public class SubjectManager : MonoBehaviour
                 _activeSubject.MoveToNewSpot(activeSpot); 
                 _activeSubject.SetInteractable(true); 
                 
+                // They arrived at the desk, change sorting order back to normal!
+                SetSortingOrder(_activeSubject, activeSortingOrder);
+                
                 StartCoroutine(WaitAndTossCard(_activeSubject));
             }
 
@@ -80,6 +96,7 @@ public class SubjectManager : MonoBehaviour
                 if (newPerson != null) 
                 {
                     newPerson.SetInteractable(false);
+                    SetSortingOrder(newPerson, queueSortingOrder); // New queue person sorting
                     _queueList.Add(newPerson);
                 }
             }
@@ -109,5 +126,19 @@ public class SubjectManager : MonoBehaviour
         }
         
         return entity;
+    }
+
+    // --- NEW: Helper method to safely change sorting order ---
+    private void SetSortingOrder(SubjectEntity subject, int order)
+    {
+        if (subject != null)
+        {
+            // Gets the SpriteRenderer on the object (or its children) and updates the order
+            SpriteRenderer sr = subject.GetComponentInChildren<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.sortingOrder = order;
+            }
+        }
     }
 }
