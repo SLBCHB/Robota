@@ -76,13 +76,11 @@ public class SubjectManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delayBeforeMove);
 
-        // Pokud je někdo ve frontě, posuneme ho
         if (_queueList.Count > 0)
         {
             _activeSubject = _queueList[0];
             _queueList.RemoveAt(0);
 
-            // POSUN NA PŘEPÁŽKU
             if (_activeSubject != null && activeSpot != null)
             {
                 _activeSubject.GetComponent<SubjectEntity>().MoveToNewSpot(activeSpot);
@@ -97,7 +95,6 @@ public class SubjectManager : MonoBehaviour
                 StartCoroutine(WaitAndTossCard(_activeSubject.GetComponent<SubjectEntity>()));
             }
 
-            // POSUN ZBYTKU FRONTY DOPŘEDU
             for (int i = 0; i < _queueList.Count; i++)
             {
                 if (_queueList[i] != null && queueSpots[i] != null)
@@ -106,7 +103,6 @@ public class SubjectManager : MonoBehaviour
                 }
             }
 
-            // PŘIDÁNÍ NOVÉHO DĚLNÍKA NA KONEC FRONTY
             if (queueSpots.Length > 0 && _prequeList.Count > 0)
             {
                 Transform lastSpot = queueSpots[queueSpots.Length - 1];
@@ -132,29 +128,24 @@ public class SubjectManager : MonoBehaviour
         }
     }
 
-    // --- OPRAVENÁ METODA PRO SPAWNOVÁNÍ ---
     private GameObject SpawnSubjectAt(Transform spot)
     {
-        // 1. Zkontrolujeme, jestli vůbec máme koho přidat, ať to nehodí error!
         if (_prequeList == null || _prequeList.Count == 0 || spot == null)
         {
             Debug.LogWarning("[SubjectManager] Došli dělníci v _prequeList nebo chybí spot!");
             return null;
         }
 
-        // 2. Vezmeme prvního z waiting listu
         GameObject obj = _prequeList[0];
         _prequeList.RemoveAt(0);
 
-        // 3. Aktivujeme ho (pokud používáš trik se SetActive(false) pro čekající dělníky)
         obj.SetActive(true);
 
-        // 4. Nastavíme mu data a FYZICKY ho přesuneme na pozici spotu
         SubjectEntity entity = obj.GetComponent<SubjectEntity>();
         if (entity != null)
         {
             entity.basePosition = spot;
-            obj.transform.position = spot.position; // <--- TOTO CHYBĚLO!
+            obj.transform.position = spot.position;
         }
 
         return obj;
