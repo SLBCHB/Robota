@@ -162,6 +162,7 @@ public class SubjectEntity : CameraObject
     
     public GameObject TossIDCard()
     {
+        //TooltipManager.Instance.ShowDialogue("Hey! Give me my ID back!", this.transform, 2.5f);
         if (idCardPrefab == null) return null;
         
         GameObject card = Instantiate(idCardPrefab, itemThrowPos.position, Quaternion.identity);
