@@ -5,8 +5,8 @@ public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private int gameTimeSpeed;
     [SerializeField] private int fitnessTickSpeedMultiplayer;
-    private int minutesElapsed;
-    private int earendFitness;
+    private int minutesElapsed = 0;
+    private int earendFitness = 0;
 
     private float timeAccumulator = 0f;
     private float fitnessTimeAccumulator = 0f;
@@ -39,9 +39,9 @@ public class GameManager : Singleton<GameManager>
             fitnessTimeAccumulator -= timeToAdd;
         }
 
-        if (earendFitness >= DifficultyManager.Instance.getCurrentDifficulty().requiredFitness) ;
+        if (earendFitness >= DifficultyManager.Instance.getCurrentDifficulty().requiredFitness)
         {
-            SceneController.Instance.LoadScene(GameScene.GoodEnd);
+         //   SceneController.Instance.LoadScene(GameScene.GoodEnd);
         }
     }
 
