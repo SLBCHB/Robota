@@ -39,6 +39,17 @@ public class Robotnik: MonoBehaviour
         this.HairStyle = HairStyle;
     }
 
+    public void paste(Robotnik robotnik)
+    {
+        this.id = robotnik.id;
+        this.robotnikProperties = robotnik.robotnikProperties;
+        this.robotnikValidProperties = robotnik.robotnikValidProperties;
+        this.type = robotnik.type;
+        this.dir = robotnik.dir;
+        this.State = robotnik.State;
+        this.HairStyle = robotnik.HairStyle;
+    }
+
     public void setVizual()
     {
         this.GetComponentInChildren<RobotnikSpriteController>().updateCharacter(type, dir, HairStyle, State);
