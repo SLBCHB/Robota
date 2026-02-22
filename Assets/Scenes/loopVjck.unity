@@ -1308,6 +1308,7 @@ MonoBehaviour:
   maxSwingAngle: 45
   selfRightingSpeed: 5
   dragSortingOrder: 999
+  IsBeingDragged: 0
 --- !u!1 &344443325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1356,7 @@ Transform:
   - {fileID: 667644275}
   - {fileID: 1789621091}
   - {fileID: 807650264}
+  - {fileID: 1773337818}
   m_Father: {fileID: 20924679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &344443327
@@ -1379,6 +1381,53 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   notes: 
+--- !u!1 &371571831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371571833}
+  - component: {fileID: 371571832}
+  m_Layer: 0
+  m_Name: DifficultyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &371571832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371571831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f63472f5d54f6244f9ccc7020d233063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
+  days:
+  - {fileID: 11400000, guid: 675d683e7e70076479528f25a71845cb, type: 2}
+  dayCounter: 0
+--- !u!4 &371571833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371571831}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.87219, y: -9.59037, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407029773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +2019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53aa2ed9df8e5f4a8cf4f592b51c4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SubjectManager
+  robotnikGenerator: {fileID: 1380670042}
   activeSpot: {fileID: 570740977}
   queueSpots:
   - {fileID: 2112302819}
@@ -1982,10 +2032,12 @@ MonoBehaviour:
   - {fileID: 7005412083811632240, guid: 16ef1151499392a499cd166d851a7db5, type: 3}
   - {fileID: 7005412083811632240, guid: 16ef1151499392a499cd166d851a7db5, type: 3}
   - {fileID: 7005412083811632240, guid: 16ef1151499392a499cd166d851a7db5, type: 3}
-  activeSortingOrder: -6
-  queueSortingOrder: 3
+  activeSortingOrder: 0
+  queueSortingOrder: 12
   delayBeforeMove: 1
   destroyDelay: 3
+  _queueList: []
+  _prequeList: []
 --- !u!1 &504106688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,8 +4725,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e005bfb25e5ab429972e468f172cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RobotnikGenerator
-  RobotnikPrefab: {fileID: 1157334538550713681, guid: 24b1d6f731ae81440a67b6254408c03c, type: 3}
-  robotnikParent: {fileID: 1360487932}
+  inLineController: {fileID: 503866059}
+  inLinePreSpawn: {fileID: 1773337818}
+  InLinePrefab: {fileID: 7005412083811632240, guid: 8bc539974c0c5a64eb433e0fc77a9928, type: 3}
 --- !u!1 &1473668769
 GameObject:
   m_ObjectHideFlags: 0
@@ -6379,6 +6432,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1773337817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1773337818}
+  m_Layer: 0
+  m_Name: PreQueue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1773337818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773337817}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.28, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 344443326}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1789621088
 GameObject:
   m_ObjectHideFlags: 0
@@ -8010,3 +8094,4 @@ SceneRoots:
   - {fileID: 2132947789}
   - {fileID: 1380670041}
   - {fileID: 312689503}
+  - {fileID: 371571833}

@@ -113,7 +113,7 @@ public class SubjectManager : MonoBehaviour
                 if (qPerson != null)
                 {
                     qPerson.GetComponent<SubjectEntity>().SetInteractable(false);
-                    SetSortingOrder(newPerson, queueSortingOrder);
+                    SetSortingOrder(qPerson, queueSortingOrder);
                     qPerson.GetComponent<SubjectEntity>().MoveToNewSpot(lastSpot);
                     _queueList.Add(qPerson);
                 }
