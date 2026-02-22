@@ -218,14 +218,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavMan
       objectReference: {fileID: 0}
-    - target: {fileID: 1183368439438572269, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
-      propertyPath: m_VoxelSize
-      value: 0.16666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 1183368439438572269, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
-      propertyPath: m_NavMeshData
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[0]'
       value: 
-      objectReference: {fileID: 23800000, guid: 9395455f0c7a51e449f208c125fb76af, type: 2}
+      objectReference: {fileID: 1784616348}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1804234830}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1455557796}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[3]'
+      value: 
+      objectReference: {fileID: 512617604}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[4]'
+      value: 
+      objectReference: {fileID: 623311053}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[5]'
+      value: 
+      objectReference: {fileID: 560175952}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1587712837}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1506438779}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[8]'
+      value: 
+      objectReference: {fileID: 333087490}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[9]'
+      value: 
+      objectReference: {fileID: 1129948306}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[10]'
+      value: 
+      objectReference: {fileID: 1750444795}
+    - target: {fileID: 2794734811232155712, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
+      propertyPath: 'work.Array.data[11]'
+      value: 
+      objectReference: {fileID: 62909532}
     - target: {fileID: 7345696320109347430, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.77958
@@ -269,10 +309,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 696548477962898631, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1936036723}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
 --- !u!1 &102364833
 GameObject:
@@ -2854,37 +2891,6 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!1 &1936036718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 696548477962898631, guid: 69ef07657ecde1f42bba55f025a61e6f, type: 3}
-  m_PrefabInstance: {fileID: 67362146}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1936036723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936036718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f713fa8d3688d854db29e1eb81696784, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavManMan
-  work:
-  - {fileID: 1784616348}
-  - {fileID: 1804234830}
-  - {fileID: 1455557796}
-  - {fileID: 512617604}
-  - {fileID: 623311053}
-  - {fileID: 560175952}
-  - {fileID: 1587712837}
-  - {fileID: 1506438779}
-  - {fileID: 333087490}
-  - {fileID: 1129948306}
-  - {fileID: 1750444795}
-  - {fileID: 62909532}
-  robotak: {fileID: 1157334538550713681, guid: 24b1d6f731ae81440a67b6254408c03c, type: 3}
 --- !u!1 &1968968872
 GameObject:
   m_ObjectHideFlags: 0
