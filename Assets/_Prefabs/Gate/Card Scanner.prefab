@@ -205,7 +205,6 @@ MonoBehaviour:
   dragResponsiveness: 15
   maxDragVelocity: 50
   tableFriction: 5
-  isMovable: 0
   swingSensitivity: 2
   maxSwingAngle: 45
   selfRightingSpeed: 5
@@ -225,7 +224,6 @@ MonoBehaviour:
   dragResponsiveness: 15
   maxDragVelocity: 50
   tableFriction: 5
-  isMovable: 0
   swingSensitivity: 2
   maxSwingAngle: 45
   selfRightingSpeed: 5
@@ -234,7 +232,14 @@ MonoBehaviour:
   slotEnd: {fileID: 4055366831937977298}
   breakDistance: 1.5
   swipeThreshold: 0.85
+  grantedLed: {fileID: 5563849643583107308}
+  deniedLed: {fileID: 43958501576030846}
+  blinkCount: 3
+  blinkInterval: 0.15
   OnScanSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnScanFailed:
     m_PersistentCalls:
       m_Calls: []
 --- !u!50 &9095644521712921584

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4144689604841388553}
   m_Layer: 6
   m_Name: Keycard
-  m_TagString: interactable
+  m_TagString: IDCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,6 @@ MonoBehaviour:
   dragResponsiveness: 15
   maxDragVelocity: 50
   tableFriction: 5
-  isMovable: 1
   swingSensitivity: 2
   maxSwingAngle: 45
   selfRightingSpeed: 5

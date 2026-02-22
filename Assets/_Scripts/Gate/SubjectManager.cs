@@ -31,20 +31,26 @@ public class SubjectManager : MonoBehaviour
         }
     }
 
+    private GameObject _activeCard;
+
     public void HandleSubjectProcessed(SubjectEntity processedSubject)
     {
         if (processedSubject != null)
         {
             Destroy(processedSubject.gameObject, destroyDelay);
         }
+        
+        if (_activeCard != null)
+        {
+            Destroy(_activeCard);
+        }
+
         StartCoroutine(AdvanceQueueRoutine());
     }
 
     private IEnumerator AdvanceQueueRoutine()
     {
         yield return new WaitForSeconds(delayBeforeMove);
-
-        Debug.Log($"<color=cyan>--- ADVANCING QUEUE ---</color>");
 
         if (_queueList.Count > 0)
         {
@@ -53,21 +59,17 @@ public class SubjectManager : MonoBehaviour
             
             if (_activeSubject != null && activeSpot != null)
             {
-                Debug.Log($"<color=green>Moving {_activeSubject.gameObject.name} to Active Spot</color>");
                 _activeSubject.MoveToNewSpot(activeSpot); 
                 _activeSubject.SetInteractable(true); 
+                
+                StartCoroutine(WaitAndTossCard(_activeSubject));
             }
 
             for (int i = 0; i < _queueList.Count; i++)
             {
                 if (_queueList[i] != null && queueSpots[i] != null)
                 {
-                    Debug.Log($"<color=orange>Moving {_queueList[i].gameObject.name} forward to {queueSpots[i].gameObject.name}</color>");
                     _queueList[i].MoveToNewSpot(queueSpots[i]);
-                }
-                else
-                {
-                    Debug.LogError($"<color=red>ERROR: Queue List or Queue Spot at index {i} is missing!</color>");
                 }
             }
 
@@ -79,13 +81,17 @@ public class SubjectManager : MonoBehaviour
                 {
                     newPerson.SetInteractable(false);
                     _queueList.Add(newPerson);
-                    Debug.Log($"<color=yellow>Spawned new person at the back of the line.</color>");
                 }
             }
         }
-        else
+    }
+
+    private IEnumerator WaitAndTossCard(SubjectEntity subject)
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (subject != null)
         {
-            Debug.LogWarning("Queue list was empty, couldn't advance!");
+            _activeCard = subject.TossIDCard();
         }
     }
 
