@@ -28,10 +28,12 @@ public class SubjectManager : MonoBehaviour
     private void Start()
     {
         _activeSubject = SpawnSubjectAt(activeSpot);
+        _activeSubject.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+
         if (_activeSubject != null) 
         {
             _activeSubject.SetInteractable(true);
-            SetSortingOrder(_activeSubject, activeSortingOrder); // Active spot sorting
+            SetSortingOrder(_activeSubject, activeSortingOrder);
         }
 
         for (int i = 0; i < queueSpots.Length; i++)
@@ -40,7 +42,7 @@ public class SubjectManager : MonoBehaviour
             if (qPerson != null) 
             {
                 qPerson.SetInteractable(false); 
-                SetSortingOrder(qPerson, queueSortingOrder); // Queue spot sorting
+                SetSortingOrder(qPerson, queueSortingOrder);
             }
             _queueList.Add(qPerson);
         }
@@ -73,9 +75,9 @@ public class SubjectManager : MonoBehaviour
             if (_activeSubject != null && activeSpot != null)
             {
                 _activeSubject.MoveToNewSpot(activeSpot); 
+                _activeSubject.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
                 _activeSubject.SetInteractable(true); 
                 
-                // They arrived at the desk, change sorting order back to normal!
                 SetSortingOrder(_activeSubject, activeSortingOrder);
                 
                 StartCoroutine(WaitAndTossCard(_activeSubject));
@@ -96,7 +98,7 @@ public class SubjectManager : MonoBehaviour
                 if (newPerson != null) 
                 {
                     newPerson.SetInteractable(false);
-                    SetSortingOrder(newPerson, queueSortingOrder); // New queue person sorting
+                    SetSortingOrder(newPerson, queueSortingOrder);
                     _queueList.Add(newPerson);
                 }
             }
@@ -128,12 +130,10 @@ public class SubjectManager : MonoBehaviour
         return entity;
     }
 
-    // --- NEW: Helper method to safely change sorting order ---
     private void SetSortingOrder(SubjectEntity subject, int order)
     {
         if (subject != null)
         {
-            // Gets the SpriteRenderer on the object (or its children) and updates the order
             SpriteRenderer sr = subject.GetComponentInChildren<SpriteRenderer>();
             if (sr != null)
             {
