@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1049153670499135477}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.16, z: 0}
+  m_LocalPosition: {x: 0, y: -3.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -220,6 +220,7 @@ MonoBehaviour:
   maxSwingAngle: 45
   selfRightingSpeed: 5
   dragSortingOrder: 999
+  IsBeingDragged: 0
   basePosition: {fileID: 0}
   maxY: -2
   minY: -15
@@ -231,6 +232,7 @@ MonoBehaviour:
   throwForce: {x: 0, y: -3}
   receiveRadius: 1.5
   idCardTag: IDCard
+  canBeProcessed: 0
 --- !u!1 &8009931546165921364
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 8009931546165921364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 3.31, z: 0}
+  m_LocalPosition: {x: 0.02, y: 1.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -272,15 +274,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1954218043833244159, guid: 7d4c080ec2f384e4fbb6736f3db5277c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.84000003
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 1954218043833244159, guid: 7d4c080ec2f384e4fbb6736f3db5277c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.84000003
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 1954218043833244159, guid: 7d4c080ec2f384e4fbb6736f3db5277c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.84000003
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 1954218043833244159, guid: 7d4c080ec2f384e4fbb6736f3db5277c, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class SubjectManager : MonoBehaviour
 {
@@ -166,6 +167,11 @@ public class SubjectManager : MonoBehaviour
             if (sr != null)
             {
                 sr.sortingOrder = order;
+            }
+
+            foreach (var srr in sr.GetComponentsInChildren<SpriteRenderer>())
+            {
+                srr.sortingOrder = order;
             }
         }
     }
