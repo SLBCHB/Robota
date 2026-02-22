@@ -223,7 +223,6 @@ public class CameraController : MonoBehaviour
         Vector3 worldPos = _mainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, dist));
         worldPos.z = 0;
         
-        // --- THE HITBOX FIX: Give the cursor a physical 0.2f radius so it's easy to hover! ---
         Collider2D hit = Physics2D.OverlapCircle(worldPos, 0.2f);
         return hit != null ? hit.gameObject : null;
     }
