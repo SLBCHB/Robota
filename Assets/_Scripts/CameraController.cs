@@ -46,6 +46,8 @@ public class CameraController : MonoBehaviour
     private Vector2 _currentMousePos;
     private bool _isOverUI;
     private GameObject _hoveredWorldObject;
+    
+    private CameraMoveController _moveController;
 
     private void Awake() => Instance = this;
 
@@ -63,6 +65,8 @@ public class CameraController : MonoBehaviour
             _initialOffset = _followComponent.FollowOffset;
 
         Cursor.visible = false;
+        
+        _moveController = FindFirstObjectByType<CameraMoveController>();
         
         GameObject defCursorObj = Instantiate(defaultCursorPrefab, cursorCanvas.transform);
         GameObject ptrCursorObj = Instantiate(pointerCursorPrefab, cursorCanvas.transform);
@@ -99,9 +103,15 @@ public class CameraController : MonoBehaviour
         _currentMousePos = GetClampedMousePos();
         _isOverUI = CheckUI(_currentMousePos);
         _hoveredWorldObject = GetWorldObjectUnderMouse(_currentMousePos);
+        
+        bool isAtGate = _moveController != null ? _moveController.isAtGate : true;
 
-        HandleCameraShift(_currentMousePos);
-        UpdateCursorVisuals(_currentMousePos);
+        if (isAtGate)
+        {
+            HandleCameraShift(_currentMousePos);
+        }
+
+        UpdateCursorVisuals(_currentMousePos, isAtGate);
     }
 
     public void SelectClawTool()
@@ -133,6 +143,8 @@ public class CameraController : MonoBehaviour
 
     private void HandleInputClick()
     {
+        if (_moveController != null && !_moveController.isAtGate) return;
+        
         if (_isOverUI)
         {
             if (_raycastResults.Count > 0)
@@ -150,7 +162,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private void UpdateCursorVisuals(Vector2 mousePos)
+    private void UpdateCursorVisuals(Vector2 mousePos, bool isAtGate)
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             cursorCanvas.transform as RectTransform, 
@@ -165,11 +177,11 @@ public class CameraController : MonoBehaviour
         bool shouldShowPointer = _isOverUI || isOverInteractable;
         bool isOverTable = (mousePos.y / Screen.height) <= tableHeightRatio;
 
-        bool showFingerprint = (activeTool == ToolType.Fingerprint);
-        bool showClaw = (!isOverTable && activeTool == ToolType.Claw);
-        bool showScanner = (!isOverTable && activeTool == ToolType.Scanner);
+        bool showFingerprint = isAtGate && (activeTool == ToolType.Fingerprint);
+        bool showClaw = isAtGate && (!isOverTable && activeTool == ToolType.Claw);
+        bool showScanner = isAtGate && (!isOverTable && activeTool == ToolType.Scanner);
         
-        bool showDefaultCursor = (isOverTable && !showFingerprint); 
+        bool showDefaultCursor = (!isAtGate) || (isOverTable && !showFingerprint); 
 
         if (FingerprintController.Instance != null) FingerprintController.Instance.SetActiveState(showFingerprint);
         if (ClawController.Instance != null) ClawController.Instance.SetActiveState(showClaw);

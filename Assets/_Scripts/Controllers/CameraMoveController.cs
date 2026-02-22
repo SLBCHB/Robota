@@ -1,20 +1,26 @@
 using UnityEngine;
-using Unity.Cinemachine; 
+using Unity.Cinemachine;
 
 public class CameraMoveController : MonoBehaviour
 {
-    [Header("Camera Target")]
-    public Transform cameraTarget;
-    public CinemachineCamera vcam; 
+    [Header("Cameras")]
+    [Tooltip("The camera used for the main Gate minigame")]
+    public CinemachineCamera gateCamera;
+    [Tooltip("The camera that pans around the CCTV screens")]
+    public CinemachineCamera cctvCamera;
+
+    [Header("CCTV Target")]
+    [Tooltip("The empty GameObject that the CCTV Camera follows")]
+    public Transform cctvTarget;
     public float panSpeed = 8f;
 
-    [Header("Grid Positions")]
+    [Header("CCTV Grid Positions")]
     public Transform topLeftPos;
     public Transform topRightPos;
     public Transform bottomLeftPos;
     public Transform bottomRightPos;
 
-    [Header("Room Zoom Sizes (Orthographic Size)")]
+    [Header("Room Zoom Sizes")]
     public float topLeftSize = 5f;
     public float topRightSize = 5f;
     public float bottomLeftSize = 5f;
@@ -26,6 +32,8 @@ public class CameraMoveController : MonoBehaviour
     public GameObject leftButton;
     public GameObject rightButton;
 
+    public bool isAtGate = true; 
+
     private Transform _currentPos;
     private float _targetOrthoSize;
 
@@ -34,38 +42,47 @@ public class CameraMoveController : MonoBehaviour
         if (bottomLeftPos != null)
         {
             _currentPos = bottomLeftPos;
-            
-            if (cameraTarget != null) cameraTarget.position = _currentPos.position;
-            
+            if (cctvTarget != null) cctvTarget.position = _currentPos.position;
             UpdateTargetSize();
-            if (vcam != null) vcam.Lens.OrthographicSize = _targetOrthoSize;
-            
-            UpdateButtonVisibility(); 
+            if (cctvCamera != null) cctvCamera.Lens.OrthographicSize = _targetOrthoSize;
         }
-        else
-        {
-            Debug.LogError("<color=red>ERROR: Bottom Left Pos is missing in the Inspector!</color>");
-        }
+
+        SetGateView(true);
     }
 
     private void Update()
     {
-        if (cameraTarget != null && _currentPos != null)
+        if (cctvTarget != null && _currentPos != null)
         {
-            cameraTarget.position = Vector3.Lerp(cameraTarget.position, _currentPos.position, Time.deltaTime * panSpeed);
+            cctvTarget.position = Vector3.Lerp(cctvTarget.position, _currentPos.position, Time.deltaTime * panSpeed);
         }
 
-        if (vcam != null)
+        if (cctvCamera != null)
         {
-            vcam.Lens.OrthographicSize = Mathf.Lerp(vcam.Lens.OrthographicSize, _targetOrthoSize, Time.deltaTime * panSpeed);
+            cctvCamera.Lens.OrthographicSize = Mathf.Lerp(cctvCamera.Lens.OrthographicSize, _targetOrthoSize, Time.deltaTime * panSpeed);
         }
     }
+
+    public void ToggleGateCCTV()
+    {
+        SetGateView(!isAtGate);
+    }
+
+    private void SetGateView(bool toGate)
+    {
+        isAtGate = toGate;
+        
+        if (gateCamera != null) gateCamera.Priority = toGate ? 10 : 0;
+        if (cctvCamera != null) cctvCamera.Priority = toGate ? 0 : 10;
+        
+        UpdateButtonVisibility();
+    }
+
 
     public void MoveUp()
     {
         if (_currentPos == bottomLeftPos) _currentPos = topLeftPos;
         else if (_currentPos == bottomRightPos) _currentPos = topRightPos;
-        
         UpdateRoomState();
     }
 
@@ -73,7 +90,6 @@ public class CameraMoveController : MonoBehaviour
     {
         if (_currentPos == topLeftPos) _currentPos = bottomLeftPos;
         else if (_currentPos == topRightPos) _currentPos = bottomRightPos;
-        
         UpdateRoomState();
     }
 
@@ -81,7 +97,6 @@ public class CameraMoveController : MonoBehaviour
     {
         if (_currentPos == topRightPos) _currentPos = topLeftPos;
         else if (_currentPos == bottomRightPos) _currentPos = bottomLeftPos;
-        
         UpdateRoomState();
     }
 
@@ -89,7 +104,6 @@ public class CameraMoveController : MonoBehaviour
     {
         if (_currentPos == topLeftPos) _currentPos = topRightPos;
         else if (_currentPos == bottomLeftPos) _currentPos = bottomRightPos;
-        
         UpdateRoomState();
     }
 
@@ -109,16 +123,18 @@ public class CameraMoveController : MonoBehaviour
 
     private void UpdateButtonVisibility()
     {
-        if (upButton != null) 
-            upButton.SetActive(_currentPos == bottomLeftPos || _currentPos == bottomRightPos);
-            
-        if (downButton != null) 
-            downButton.SetActive(_currentPos == topLeftPos || _currentPos == topRightPos);
-            
-        if (leftButton != null) 
-            leftButton.SetActive(_currentPos == topRightPos || _currentPos == bottomRightPos);
-            
-        if (rightButton != null) 
-            rightButton.SetActive(_currentPos == topLeftPos || _currentPos == bottomLeftPos);
+        if (isAtGate)
+        {
+            if (upButton != null) upButton.SetActive(false);
+            if (downButton != null) downButton.SetActive(false);
+            if (leftButton != null) leftButton.SetActive(false);
+            if (rightButton != null) rightButton.SetActive(false);
+            return;
+        }
+
+        if (upButton != null) upButton.SetActive(_currentPos == bottomLeftPos || _currentPos == bottomRightPos);
+        if (downButton != null) downButton.SetActive(_currentPos == topLeftPos || _currentPos == topRightPos);
+        if (leftButton != null) leftButton.SetActive(_currentPos == topRightPos || _currentPos == bottomRightPos);
+        if (rightButton != null) rightButton.SetActive(_currentPos == topLeftPos || _currentPos == bottomLeftPos);
     }
 }
