@@ -37,14 +37,14 @@ public class DecisionZone : MonoBehaviour
     {
         subject.IsProcessed = true;
         subject.gameObject.tag = "Untagged"; 
+        
+        subject.SetSortingOrder(-6);
 
         Rigidbody2D rb = subject.GetComponent<Rigidbody2D>();
         rb.linearDamping = 0f;
         rb.linearVelocity = exitVelocity;
-
-        Debug.Log($"<color=orange>✅ {subject.gameObject.name} WAS PROCESSED BY {zoneName}!</color>");
         
         OnSubjectProcessed?.Invoke(subject); 
-        OnZoneTriggered?.Invoke();
+        OnZoneTriggered?.Invoke(); 
     }
 }

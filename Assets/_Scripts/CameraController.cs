@@ -73,8 +73,14 @@ public class CameraController : MonoBehaviour
         _cursorDefaultRT.pivot = new Vector2(0f, 1f);
         _cursorPointerRT.pivot = new Vector2(0f, 1f);
 
-        if (defCursorObj.TryGetComponent(out Image defImg)) defImg.raycastTarget = false;
-        if (ptrCursorObj.TryGetComponent(out Image ptrImg)) ptrImg.raycastTarget = false;
+        // --- THE BULLETPROOF FIX: Force cursors to ignore all raycasts! ---
+        CanvasGroup defGroup = defCursorObj.AddComponent<CanvasGroup>();
+        defGroup.interactable = false;
+        defGroup.blocksRaycasts = false;
+
+        CanvasGroup ptrGroup = ptrCursorObj.AddComponent<CanvasGroup>();
+        ptrGroup.interactable = false;
+        ptrGroup.blocksRaycasts = false;
 
         _cursorPointerRT.gameObject.SetActive(false);
 
@@ -87,7 +93,7 @@ public class CameraController : MonoBehaviour
             InputManager.Instance.CameraClickEvent -= HandleInputClick;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (_followComponent == null || InputManager.Instance == null) return;
 
@@ -146,9 +152,18 @@ public class CameraController : MonoBehaviour
 
     private void UpdateCursorVisuals(Vector2 mousePos)
     {
-        _cursorDefaultRT.position = mousePos;
-        _cursorPointerRT.position = mousePos;
+        // 2. CRITICAL FIX: Properly translate raw screen pixels into Canvas UI coordinates
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            cursorCanvas.transform as RectTransform, 
+            mousePos, 
+            cursorCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _mainCam, 
+            out Vector2 localPos);
 
+        // Apply the perfectly scaled local position to the anchored position
+        _cursorDefaultRT.anchoredPosition = localPos;
+        _cursorPointerRT.anchoredPosition = localPos;
+
+        // The rest of your code remains exactly the same!
         bool isOverInteractable = _hoveredWorldObject != null && _hoveredWorldObject.CompareTag(interactableTag);
         bool shouldShowPointer = _isOverUI || isOverInteractable;
 
@@ -207,7 +222,9 @@ public class CameraController : MonoBehaviour
         float dist = Mathf.Abs(_mainCam.transform.position.z);
         Vector3 worldPos = _mainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, dist));
         worldPos.z = 0;
-        Collider2D hit = Physics2D.OverlapPoint(worldPos);
+        
+        // --- THE HITBOX FIX: Give the cursor a physical 0.2f radius so it's easy to hover! ---
+        Collider2D hit = Physics2D.OverlapCircle(worldPos, 0.2f);
         return hit != null ? hit.gameObject : null;
     }
 }

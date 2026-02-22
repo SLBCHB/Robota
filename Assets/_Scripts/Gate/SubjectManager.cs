@@ -14,6 +14,12 @@ public class SubjectManager : MonoBehaviour
     [Header("Spawning Setup")]
     public GameObject[] subjectPrefabs; // (Pokud je už nepoužíváš a taháš jen z prequeListu, můžeš tohle smazat)
 
+    [Header("Sorting Orders")]
+    [Tooltip("Sorting order for the person currently at the desk")]
+    public int activeSortingOrder = 0;
+    [Tooltip("Sorting order for the people waiting in line")]
+    public int queueSortingOrder = 12;
+
     [Header("Timing")]
     public float delayBeforeMove = 1.0f;
     public float destroyDelay = 3.0f;
@@ -21,6 +27,7 @@ public class SubjectManager : MonoBehaviour
     private GameObject _activeSubject;
     public List<GameObject> _queueList = new List<GameObject>();
     public List<GameObject> _prequeList = new List<GameObject>();
+    private GameObject _activeCard;
 
     public void Init()
     {
@@ -29,6 +36,7 @@ public class SubjectManager : MonoBehaviour
         if (_activeSubject != null)
         {
             _activeSubject.GetComponent<SubjectEntity>().SetInteractable(true);
+            SetSortingOrder(_activeSubject, activeSortingOrder);
             _activeSubject.GetComponent<Robotnik>().dir = RobotnikDirection.Front;
             _activeSubject.GetComponent<Robotnik>().setVizual();
             _activeSubject.GetComponent<SubjectEntity>().canBeProcessed = true;
@@ -42,12 +50,11 @@ public class SubjectManager : MonoBehaviour
             if (qPerson != null)
             {
                 qPerson.GetComponent<SubjectEntity>().SetInteractable(false);
+                SetSortingOrder(qPerson, queueSortingOrder);
                 _queueList.Add(qPerson);
             }
         }
     }
-
-    private GameObject _activeCard;
 
     public void HandleSubjectProcessed(SubjectEntity processedSubject)
     {
@@ -77,7 +84,9 @@ public class SubjectManager : MonoBehaviour
             // POSUN NA PŘEPÁŽKU
             if (_activeSubject != null && activeSpot != null)
             {
-                _activeSubject.GetComponent<SubjectEntity>().MoveToNewSpot(activeSpot);
+                _activeSubject.GetComponent<SubjectEntity>().MoveToNewSpot(activeSpot); 
+                _activeSubject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                SetSortingOrder(_activeSubject, activeSortingOrder);
                 _activeSubject.GetComponent<SubjectEntity>().SetInteractable(true);
                 _activeSubject.GetComponent<Robotnik>().dir = RobotnikDirection.Front;
                 _activeSubject.GetComponent<Robotnik>().setVizual();
@@ -104,7 +113,7 @@ public class SubjectManager : MonoBehaviour
                 if (qPerson != null)
                 {
                     qPerson.GetComponent<SubjectEntity>().SetInteractable(false);
-                    // Pro jistotu mu rovnou řekneme, ať tam dojde (kdyby náhodou nestál přesně)
+                    SetSortingOrder(newPerson, queueSortingOrder);
                     qPerson.GetComponent<SubjectEntity>().MoveToNewSpot(lastSpot);
                     _queueList.Add(qPerson);
                 }
@@ -147,5 +156,17 @@ public class SubjectManager : MonoBehaviour
         }
 
         return obj;
+    }
+
+    private void SetSortingOrder(GameObject subject, int order)
+    {
+        if (subject != null)
+        {
+            SpriteRenderer sr = subject.GetComponentInChildren<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.sortingOrder = order;
+            }
+        }
     }
 }

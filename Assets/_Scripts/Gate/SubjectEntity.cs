@@ -73,6 +73,19 @@ public class SubjectEntity : CameraObject
             CheckForReturnedItem();
         }
     }
+    
+    public void SetSortingOrder(int order)
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sortingOrder = order;
+        }
+        else
+        {
+            SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
+            if (sr != null) sr.sortingOrder = order;
+        }
+    }
 
     private void HandleReturnToBase()
     {
