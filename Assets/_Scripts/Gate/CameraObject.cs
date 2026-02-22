@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -58,18 +59,22 @@ public abstract class CameraObject : MonoBehaviour
             CameraController.Instance.OnCameraClickEvent -= HandleGlobalClick;
     }
 
-    private void HandleGlobalClick(GameObject clickedObject)
+    private void HandleGlobalClick(List<GameObject> clickedObject)
     {
         if (ClawController.Instance != null) ClawController.Instance.SetGrabState(true);
 
-        if (clickedObject == gameObject)
+;
+        foreach (GameObject clk in clickedObject)
         {
-            IsBeingDragged = true;
-            rb.linearDamping = 10f; 
-        
-            if (spriteRenderer != null) spriteRenderer.sortingOrder = dragSortingOrder;
-            
-            OnClick(); 
+            if (clk == gameObject)
+            {
+                IsBeingDragged = true;
+                rb.linearDamping = 10f;
+
+                if (spriteRenderer != null) spriteRenderer.sortingOrder = dragSortingOrder;
+
+                OnClick();
+            }
         }
     }
 

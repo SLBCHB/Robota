@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FidgetSpinnerBlade : MonoBehaviour
@@ -33,30 +34,34 @@ public class FidgetSpinnerBlade : MonoBehaviour
         }
     }
 
-    private void HandleClick(GameObject clickedObj)
+    private void HandleClick(List<GameObject> clickedObj)
     {
-        // If the raycast hit this blade...
-        if (clickedObj == gameObject)
-        {
-            Vector2 worldPos = GetMouseWorldPos();
-            float distToCenter = Vector2.Distance(worldPos, transform.parent.position);
 
-            // Check if we actually clicked near the center dot
-            if (distToCenter <= centerDragRadius)
+        foreach (GameObject clk in clickedObj)
+        {
+
+            if (clk == gameObject)
             {
-                // Pass the interaction to the parent so we drag the toy!
-                CameraObject parentDrag = transform.parent.GetComponent<CameraObject>();
-                if (parentDrag != null)
+                Vector2 worldPos = GetMouseWorldPos();
+                float distToCenter = Vector2.Distance(worldPos, transform.parent.position);
+
+                // Check if we actually clicked near the center dot
+                if (distToCenter <= centerDragRadius)
                 {
-                    parentDrag.OnClick(); 
+                    // Pass the interaction to the parent so we drag the toy!
+                    CameraObject parentDrag = transform.parent.GetComponent<CameraObject>();
+                    if (parentDrag != null)
+                    {
+                        parentDrag.OnClick();
+                    }
                 }
-            }
-            else
-            {
-                // We clicked the outer arms, start spinning!
-                _isBeingSpun = true;
-                _lastMouseDir = GetMouseDir(worldPos);
-                _angularVelocity = 0f; 
+                else
+                {
+                    // We clicked the outer arms, start spinning!
+                    _isBeingSpun = true;
+                    _lastMouseDir = GetMouseDir(worldPos);
+                    _angularVelocity = 0f;
+                }
             }
         }
     }

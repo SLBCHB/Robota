@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Unity.Cinemachine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
     [Header("Screen Zones")]
     public float tableHeightRatio = 0.45f;
 
-    public event Action<GameObject> OnCameraClickEvent;
+    public event Action<List<GameObject>> OnCameraClickEvent;
 
     private CinemachineCamera _vcam;
     private CinemachineFollow _followComponent;
@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour
 
     private Vector2 _currentMousePos;
     private bool _isOverUI;
-    private GameObject _hoveredWorldObject;
+    private List<GameObject> _hoveredWorldObject;
 
     private void Awake() => Instance = this;
 
@@ -93,14 +93,16 @@ public class CameraController : MonoBehaviour
             InputManager.Instance.CameraClickEvent -= HandleInputClick;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        if (_followComponent == null || InputManager.Instance == null) return;
+        Vector2 mousePos = InputManager.Instance.MousePosition;
+        _currentMousePos = mousePos;
+        // 2. Přímo nastavit pozici (pro Overlay Canvas to funguje 1:1)
+        // POZOR: Ujisti se, že RectTransform kurzorů má Anchor nastavený vlevo dole (0,0)
+        // nebo použij 'position' místo 'anchoredPosition'.
 
-        _currentMousePos = GetClampedMousePos();
         _isOverUI = CheckUI(_currentMousePos);
         _hoveredWorldObject = GetWorldObjectUnderMouse(_currentMousePos);
-
         HandleCameraShift(_currentMousePos);
         UpdateCursorVisuals(_currentMousePos);
     }
@@ -133,6 +135,7 @@ public class CameraController : MonoBehaviour
 
     private void HandleInputClick()
     {
+        Debug.Log(_isOverUI);
         if (_isOverUI)
         {
             if (_raycastResults.Count > 0)
@@ -146,25 +149,23 @@ public class CameraController : MonoBehaviour
 
         if (_hoveredWorldObject != null)
         {
-            Debug.Log($"clicked: {_hoveredWorldObject.name}");
+            //Debug.Log($"clicked: {_hoveredWorldObject.name}");
         }
     }
 
     private void UpdateCursorVisuals(Vector2 mousePos)
     {
         // 2. CRITICAL FIX: Properly translate raw screen pixels into Canvas UI coordinates
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            cursorCanvas.transform as RectTransform, 
-            mousePos, 
-            cursorCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _mainCam, 
-            out Vector2 localPos);
-
-        // Apply the perfectly scaled local position to the anchored position
-        _cursorDefaultRT.anchoredPosition = localPos;
-        _cursorPointerRT.anchoredPosition = localPos;
+        _cursorDefaultRT.position = mousePos;
+        _cursorPointerRT.position = mousePos;
 
         // The rest of your code remains exactly the same!
-        bool isOverInteractable = _hoveredWorldObject != null && _hoveredWorldObject.CompareTag(interactableTag);
+        bool isOverInteractable = false;
+        foreach(GameObject go in _hoveredWorldObject)
+        {
+            isOverInteractable = go.CompareTag(interactableTag);
+        }
+        
         bool shouldShowPointer = _isOverUI || isOverInteractable;
 
         bool isOverTable = (mousePos.y / Screen.height) <= tableHeightRatio;
@@ -217,13 +218,24 @@ public class CameraController : MonoBehaviour
         return _raycastResults.Count > 0;
     }
 
-    private GameObject GetWorldObjectUnderMouse(Vector2 mousePos)
+    private List<GameObject> GetWorldObjectUnderMouse(Vector2 mousePos)
     {
         float dist = Mathf.Abs(_mainCam.transform.position.z);
         Vector3 worldPos = _mainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, dist));
         worldPos.z = 0;
-        
-        Collider2D hit = Physics2D.OverlapCircle(worldPos, 0.2f);
-        return hit != null ? hit.gameObject : null;
+
+        // Použijeme OverlapCircleAll, které vrátí pole (array) všech zasažených colliderů
+        Collider2D[] hits = Physics2D.OverlapCircleAll(worldPos, 0.2f);
+
+        // Vytvoříme si prázdný list, do kterého je přesypeme
+        List<GameObject> hitObjects = new List<GameObject>();
+
+        // Projdeme všechny zásahy a přidáme jejich GameObjecty do listu
+        foreach (Collider2D hit in hits)
+        {
+            hitObjects.Add(hit.gameObject);
+        }
+
+        return hitObjects;
     }
 }
