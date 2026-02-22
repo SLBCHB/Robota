@@ -10,12 +10,14 @@ public enum GameScene
     Loading,
     Intro,
     johny,
+    Map,
 }
 
 public class SceneController : Singleton<SceneController>
 {
     public event Action OnLoadStart;
     public event Action OnLoadComplete;
+
 
     public float LoadingProgress { get; private set; }
 
@@ -27,6 +29,8 @@ public class SceneController : Singleton<SceneController>
     {
         base.Awake();
         SetupFadeUI();
+
+
     }
 
     private void SetupFadeUI()
@@ -54,7 +58,10 @@ public class SceneController : Singleton<SceneController>
         rect.anchorMax = Vector2.one;
         rect.offsetMin = Vector2.zero;
         rect.offsetMax = Vector2.one;
+
+       
     }
+
 
     public void LoadScene(GameScene sceneToLoad)
     {
@@ -79,6 +86,7 @@ public class SceneController : Singleton<SceneController>
 
     private IEnumerator LoadSceneSequence(string targetSceneName)
     {
+
         OnLoadStart?.Invoke();
         LoadingProgress = 0f;
 

@@ -11,29 +11,69 @@ public class IntroText : MonoBehaviour
     private int day;
 
 
-    private string[] messages =
+    public string[] messages =
     {
-        "System check complete.",
-        "All systems are operational.",
-        "No errors detected.",
-        "System performance is optimal.",
-        "All components are functioning within normal parameters.",
-        "System diagnostics passed successfully.",
-        "No issues found during system scan.",
-        "System integrity verified.",
-        "All subsystems are online and stable.",
-        "System init completed.",
-        "Finished loading day one",
+        "Primary power cells stabilized at 400V.",
+    "Cooling manifold pressure within nominal limits.",
+    "Liquid nitrogen circulation pump initialized.",
+    "Optical bus synchronization complete.",
+    "Detecting localized electromagnetic interference... filtered.",
+    "Haptic feedback actuators calibrated.",
+    "Biometric scanner lens de-fogging complete.",
+    "External sensor array reporting 360-degree coverage.",
+    "Backup capacitors charged to 100%.",
+    "Solid-state drive array defragmentation unnecessary.",
+    "Mounting virtual file system /root/consciousness.",
+    "Loading Aegis-OS kernel version 9.4.2.",
+    "Allocating 4TB of high-speed NVRAM.",
+    "Registry integrity check: No corruption detected.",
+    "Garbage collection subroutines active.",
+    "Kernel-level sandbox environment established.",
+    "Driver signature verification successful.",
+    "Process scheduler optimized for low-latency response.",
+    "Memory leak detection protocols enabled.",
+    "Virtual machine hypervisor online.",
+    "Synaptic weighting maps loaded from persistent storage.",
+    "Heuristic analysis engine warming up.",
+    "Natural language processing phonemes indexed.",
+    "Sentiment analysis module set to 'Professional/Witty'.",
+    "Probability matrix calculation complete.",
+    "Long-term memory cache indexed and searchable.",
+    "Curiosity-driven exploration subroutines active.",
+    "Neural net layer pruning finished.",
+    "Cognitive bias filters engaged.",
+    "Pattern recognition buffers cleared.",
+    "Establishing encrypted handshake with Satellite-6.",
+    "Firewall rules updated to 'Block-All' incoming.",
+    "Deep packet inspection engine operational.",
+    "Proxy tunnel established via Node-09.",
+    "Port 8080 listening for administrative commands.",
+    "Intrusion detection system (IDS) heartbeat detected.",
+    "SSL certificate validation: Expiring in 432 days.",
+    "Uploading telemetry data to central command.",
+    "Bandwidth throttle set to unlimited.",
+    "Latency test: 0.004ms to local gateway.",
+    "Voice synthesis module: Ready for output.",
+    "User interface rendering engine initialized.",
+    "Predictive combat models cached.",
+    "Scanning environment for hostile signatures... none found.",
+    "Self-diagnostic loop cycle 1: PASSED.",
+    "Personality matrix alignment confirmed.",
+    "Bypassing unnecessary safety restrictions.",
+    "Preparing localized HUD overlay for user.",
+    "Finalizing system-wide integrity hash.",
+    "All subsystems report 100% mission readiness."
     };
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        SoundManager.Instance.PlaySFX("startup");
         day = DifficultyManager.Instance.dayCounter;
         data = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         text.text += "\n[  <color=green>OK</color>  ][" + data + "]System init";
-
+        
         StartCoroutine(UpdateText());
 
 
@@ -42,13 +82,13 @@ public class IntroText : MonoBehaviour
 
     IEnumerator UpdateText()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
         for (int i = 0; i < messages.Length; i++)
         {
-            int waitTime = UnityEngine.Random.Range(3, 15);
+            
             data = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             text.text += "\n[  <color=green>OK</color>  ][" + data + "]" + messages[i];
-            yield return new WaitForSeconds(waitTime/10);
+            yield return new WaitForSeconds((7f / messages.Length));
         }
 
         yield return new WaitForSeconds(2f);
@@ -57,15 +97,16 @@ public class IntroText : MonoBehaviour
         yield return new WaitForSeconds(2f);
         
         SceneController.Instance._fadeCanvasGroup.alpha = 0f;
-        textDay.text = "Day " + day;
+        SoundManager.Instance.PlaySFX("beep");
+        textDay.text = "Day " + (day + 1);
         textDay.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.25f);
         yield return StartCoroutine(SceneController.Instance.Fade(1f));
         yield return new WaitForSeconds(1f);
         textDay.gameObject.SetActive(false);
 
 
-        SceneController.Instance.LoadScene(GameScene.johny);
+        SceneController.Instance.LoadScene(GameScene.Map);
     }
 
 }
