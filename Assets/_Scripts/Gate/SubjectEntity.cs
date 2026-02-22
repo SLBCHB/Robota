@@ -33,7 +33,9 @@ public class SubjectEntity : CameraObject
     
     private bool _isReturning = false; 
     private Vector2 _returnVelocity; 
-    private float _ignoreItemTimer = 0f; 
+    private float _ignoreItemTimer = 0f;
+
+    public bool isActiveInQueue = false;
 
     protected override void Start()
     {
@@ -184,6 +186,8 @@ public class SubjectEntity : CameraObject
 
     private void CheckForReturnedItem()
     {
+        if (!isActiveInQueue) return;
+        
         Collider2D[] hits = Physics2D.OverlapCircleAll(itemThrowPos.position, receiveRadius);
         foreach (var hit in hits)
         {
