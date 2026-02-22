@@ -27,7 +27,7 @@ public class DecisionZone : MonoBehaviour
     {
         if (collision.TryGetComponent(out SubjectEntity subject))
         {
-            if (subject.IsProcessed || subject.IsBeingDragged || subject.IsSliding) return;
+            if (subject.IsProcessed || subject.IsBeingDragged || subject.IsSliding || !subject.canBeProcessed) return;
 
             ProcessSubject(subject);
         }

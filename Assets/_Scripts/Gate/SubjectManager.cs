@@ -1,33 +1,49 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class SubjectManager : MonoBehaviour
 {
+    [Header("Gen")]
+    [SerializeField] private RobotnikGenerator robotnikGenerator;
+
     [Header("Positions")]
     public Transform activeSpot;
-    public Transform[] queueSpots; 
+    public Transform[] queueSpots;
 
     [Header("Spawning Setup")]
-    public GameObject[] subjectPrefabs; 
+    public GameObject[] subjectPrefabs; // (Pokud je už nepoužíváš a taháš jen z prequeListu, můžeš tohle smazat)
 
     [Header("Timing")]
     public float delayBeforeMove = 1.0f;
-    public float destroyDelay = 3.0f; 
+    public float destroyDelay = 3.0f;
 
-    private SubjectEntity _activeSubject;
-    private List<SubjectEntity> _queueList = new List<SubjectEntity>();
+    private GameObject _activeSubject;
+    public List<GameObject> _queueList = new List<GameObject>();
+    public List<GameObject> _prequeList = new List<GameObject>();
 
-    private void Start()
+    public void Init()
     {
+        // 1. Spawne prvního na přepážku
         _activeSubject = SpawnSubjectAt(activeSpot);
-        if (_activeSubject != null) _activeSubject.SetInteractable(true);
+        if (_activeSubject != null)
+        {
+            _activeSubject.GetComponent<SubjectEntity>().SetInteractable(true);
+            _activeSubject.GetComponent<Robotnik>().dir = RobotnikDirection.Front;
+            _activeSubject.GetComponent<Robotnik>().setVizual();
+            _activeSubject.GetComponent<SubjectEntity>().canBeProcessed = true;
+        }
 
+        // 2. Naplní zbytek fronty
         for (int i = 0; i < queueSpots.Length; i++)
         {
-            SubjectEntity qPerson = SpawnSubjectAt(queueSpots[i]);
-            if (qPerson != null) qPerson.SetInteractable(false); 
-            _queueList.Add(qPerson);
+            GameObject qPerson = SpawnSubjectAt(queueSpots[i]);
+
+            if (qPerson != null)
+            {
+                qPerson.GetComponent<SubjectEntity>().SetInteractable(false);
+                _queueList.Add(qPerson);
+            }
         }
     }
 
@@ -39,7 +55,7 @@ public class SubjectManager : MonoBehaviour
         {
             Destroy(processedSubject.gameObject, destroyDelay);
         }
-        
+
         if (_activeCard != null)
         {
             Destroy(_activeCard);
@@ -52,35 +68,45 @@ public class SubjectManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delayBeforeMove);
 
+        // Pokud je někdo ve frontě, posuneme ho
         if (_queueList.Count > 0)
         {
             _activeSubject = _queueList[0];
-            _queueList.RemoveAt(0); 
-            
+            _queueList.RemoveAt(0);
+
+            // POSUN NA PŘEPÁŽKU
             if (_activeSubject != null && activeSpot != null)
             {
-                _activeSubject.MoveToNewSpot(activeSpot); 
-                _activeSubject.SetInteractable(true); 
-                
-                StartCoroutine(WaitAndTossCard(_activeSubject));
+                _activeSubject.GetComponent<SubjectEntity>().MoveToNewSpot(activeSpot);
+                _activeSubject.GetComponent<SubjectEntity>().SetInteractable(true);
+                _activeSubject.GetComponent<Robotnik>().dir = RobotnikDirection.Front;
+                _activeSubject.GetComponent<Robotnik>().setVizual();
+                _activeSubject.GetComponent<SubjectEntity>().canBeProcessed = true;
+
+                StartCoroutine(WaitAndTossCard(_activeSubject.GetComponent<SubjectEntity>()));
             }
 
+            // POSUN ZBYTKU FRONTY DOPŘEDU
             for (int i = 0; i < _queueList.Count; i++)
             {
                 if (_queueList[i] != null && queueSpots[i] != null)
                 {
-                    _queueList[i].MoveToNewSpot(queueSpots[i]);
+                    _queueList[i].GetComponent<SubjectEntity>().MoveToNewSpot(queueSpots[i]);
                 }
             }
 
-            if (queueSpots.Length > 0)
+            // PŘIDÁNÍ NOVÉHO DĚLNÍKA NA KONEC FRONTY
+            if (queueSpots.Length > 0 && _prequeList.Count > 0)
             {
                 Transform lastSpot = queueSpots[queueSpots.Length - 1];
-                SubjectEntity newPerson = SpawnSubjectAt(lastSpot);
-                if (newPerson != null) 
+                GameObject qPerson = SpawnSubjectAt(lastSpot);
+
+                if (qPerson != null)
                 {
-                    newPerson.SetInteractable(false);
-                    _queueList.Add(newPerson);
+                    qPerson.GetComponent<SubjectEntity>().SetInteractable(false);
+                    // Pro jistotu mu rovnou řekneme, ať tam dojde (kdyby náhodou nestál přesně)
+                    qPerson.GetComponent<SubjectEntity>().MoveToNewSpot(lastSpot);
+                    _queueList.Add(qPerson);
                 }
             }
         }
@@ -95,19 +121,31 @@ public class SubjectManager : MonoBehaviour
         }
     }
 
-    private SubjectEntity SpawnSubjectAt(Transform spot)
+    // --- OPRAVENÁ METODA PRO SPAWNOVÁNÍ ---
+    private GameObject SpawnSubjectAt(Transform spot)
     {
-        if (subjectPrefabs == null || subjectPrefabs.Length == 0 || spot == null) return null;
+        // 1. Zkontrolujeme, jestli vůbec máme koho přidat, ať to nehodí error!
+        if (_prequeList == null || _prequeList.Count == 0 || spot == null)
+        {
+            Debug.LogWarning("[SubjectManager] Došli dělníci v _prequeList nebo chybí spot!");
+            return null;
+        }
 
-        int randomIndex = Random.Range(0, subjectPrefabs.Length);
-        GameObject newObj = Instantiate(subjectPrefabs[randomIndex], spot.position, Quaternion.identity);
-        
-        SubjectEntity entity = newObj.GetComponent<SubjectEntity>();
+        // 2. Vezmeme prvního z waiting listu
+        GameObject obj = _prequeList[0];
+        _prequeList.RemoveAt(0);
+
+        // 3. Aktivujeme ho (pokud používáš trik se SetActive(false) pro čekající dělníky)
+        obj.SetActive(true);
+
+        // 4. Nastavíme mu data a FYZICKY ho přesuneme na pozici spotu
+        SubjectEntity entity = obj.GetComponent<SubjectEntity>();
         if (entity != null)
         {
             entity.basePosition = spot;
+            obj.transform.position = spot.position; // <--- TOTO CHYBĚLO!
         }
-        
-        return entity;
+
+        return obj;
     }
 }

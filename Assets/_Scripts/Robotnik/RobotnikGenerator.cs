@@ -5,8 +5,9 @@ using static UnityEngine.Audio.GeneratorInstance;
 
 public class RobotnikGenerator : MonoBehaviour
 {
-    [SerializeField] private GameObject RobotnikPrefab;
-    [SerializeField] private Transform robotnikParent;
+    [SerializeField] private SubjectManager inLineController;
+    [SerializeField] private Transform inLinePreSpawn;
+    [SerializeField] private GameObject InLinePrefab;
     private SORobotnikProbability currentRobotnikProbability;
     private SODifficulty currentDifficulty;
     private SORobotnikProperitesCap currentRobotnikProperitesCap;
@@ -16,10 +17,11 @@ public class RobotnikGenerator : MonoBehaviour
 
     private void Start()
     {
-        generateRobotniks();
+        generateRobotniksForLine();
+        inLineController.Init();
     }
 
-    public void generateRobotniks()
+    public void generateRobotniksForLine()
     {
         currentDifficulty = DifficultyManager.Instance.getCurrentDifficulty();
         currentRobotnikProbability = currentDifficulty.robotnikProbability;
@@ -28,29 +30,25 @@ public class RobotnikGenerator : MonoBehaviour
         for(int i = 0; i < currentDifficulty.RobotnikCount; i++)
         {
             var (props, validProps) = GenerateRobotnikProperties(currentRobotnikProbability, currentRobotnikProperitesCap);
-            GameObject gameObject = Instantiate(RobotnikPrefab, robotnikParent);
-            
+
+            GameObject gameObject = Instantiate(InLinePrefab, inLinePreSpawn);
             Robotnik robotnik = gameObject.GetComponent<Robotnik>();
             if(robotnik == null)
             {
                 robotnik = gameObject.AddComponent<Robotnik>();
             }
-
-            robotnik.setup(i, props, validProps);
-            RobotnikManager.Instance.addRobotnik(gameObject);
-
-            //Visual
-            RobotnikSpriteController spriteController = gameObject.GetComponentInChildren<RobotnikSpriteController>();
-            if (spriteController != null)
-            {
-                int type = Random.Range(0, 3);
-                int hairStyle = Random.Range(0, 2);
-
-                spriteController.updateCharacter((RobotnikType)type, RobotnikDirection.Front, hairStyle, 0);
-            }
+            int type = Random.Range(0, 3);
+            int hairStyle = Random.Range(0, 2);
+            robotnik.setup(i, props, validProps, (RobotnikType)type, RobotnikDirection.Side, 0, hairStyle);
+            robotnik.setVizual();
+            inLineController._prequeList.Add(gameObject);
         }
     }
 
+    public void RegenRobotnikWorRoom(Robotnik robotnik)
+    {
+
+    }
 
     private (RobotnikPropertiesModel properties, RobotnikValidPropertiesModel validProperties) GenerateRobotnikProperties(SORobotnikProbability robotnikProbability, SORobotnikProperitesCap robotnikProperitesCap)
     {

@@ -18,8 +18,8 @@ public abstract class CameraObject : MonoBehaviour
 
     protected Rigidbody2D rb;
     protected Camera mainCam;
-    
-    public bool IsBeingDragged { get; protected set; }
+
+    public bool IsBeingDragged = false;
     
     protected SpriteRenderer spriteRenderer;
     private int defaultSortingOrder;

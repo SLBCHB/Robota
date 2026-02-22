@@ -26,6 +26,7 @@ public class SubjectEntity : CameraObject
     [Tooltip("The tag we use to identify the ID Card")]
     public string idCardTag = "IDCard";
 
+    public bool canBeProcessed = false;
     public bool IsProcessed { get; set; }
     public bool IsSliding => _isReturning;
     public bool HasReturnedID { get; private set; } = false;

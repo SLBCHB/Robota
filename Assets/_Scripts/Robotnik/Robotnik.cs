@@ -22,12 +22,26 @@ public class Robotnik: MonoBehaviour
     public RobotnikValidPropertiesModel robotnikValidProperties;
     public RobotnikState currentState = RobotnikState.None;
     public event Action robotnikChangedState;
+    public RobotnikType type;
+    public RobotnikDirection dir;
+    public int State;
+    public int HairStyle;
 
-    public void setup(int id, RobotnikPropertiesModel robotnikProperties, RobotnikValidPropertiesModel robotnikValidProperties)
+
+    public void setup(int id, RobotnikPropertiesModel robotnikProperties, RobotnikValidPropertiesModel robotnikValidProperties, RobotnikType type, RobotnikDirection dir, int State, int HairStyle)
     {
         this.id = id;
         this.robotnikProperties = robotnikProperties;
         this.robotnikValidProperties = robotnikValidProperties;
+        this.type = type;
+        this.dir = dir;
+        this.State = State;
+        this.HairStyle = HairStyle;
+    }
+
+    public void setVizual()
+    {
+        this.GetComponentInChildren<RobotnikSpriteController>().updateCharacter(type, dir, HairStyle, State);
     }
 
     public void changeState(RobotnikState state)

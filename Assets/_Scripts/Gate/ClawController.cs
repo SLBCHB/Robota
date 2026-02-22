@@ -47,7 +47,7 @@ public class ClawController : MonoBehaviour
             float dist = Mathf.Abs(_mainCam.transform.position.z);
             Vector3 worldPos = _mainCam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, dist));
             
-            transform.position = new Vector3(worldPos.x + handleOffset.x, worldPos.y + handleOffset.y, 0f);
+            transform.position = new Vector3(worldPos.x + handleOffset.x, worldPos.y + handleOffset.y, transform.position.z);
         }
         else
         {
@@ -61,7 +61,7 @@ public class ClawController : MonoBehaviour
     public void SetGrabState(bool isGrabbing)
     {
         _spriteRenderer.sprite = isGrabbing ? grabbedSprite : releasedSprite;
-        _spriteRenderer.sortingOrder = isGrabbing ? grabbedSortingOrder : releasedSortingOrder;
+       // _spriteRenderer.sortingOrder = isGrabbing ? grabbedSortingOrder : releasedSortingOrder;
     }
 
     public void SetActiveState(bool active)
