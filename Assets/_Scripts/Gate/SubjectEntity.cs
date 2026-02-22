@@ -52,6 +52,7 @@ public class SubjectEntity : CameraObject
 
     protected override void FixedUpdate()
     {
+        Debug.Log(IsBeingDragged);
         if (IsProcessed)
         {
             ClampVerticalPosition();
