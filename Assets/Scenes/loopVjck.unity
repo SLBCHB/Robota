@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -975845760560614985, guid: 98e52614aae25d748875ba08efc4b44c, type: 3}
+  m_Sprite: {fileID: -5745729476069988309, guid: 96b3757e653468a42a028ac5ac06c240, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2446,7 +2446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -332025888876519738, guid: 3c6dec26bf4c6364aa26934313462148, type: 3}
+  m_Sprite: {fileID: -6023429139793757382, guid: ff65b4d652c2802468825b70889241d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2545,7 +2545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8376276196017960917, guid: b35140bca1f80a949b96531793ed9eeb, type: 3}
       propertyPath: m_Name
-      value: obj-1_0
+      value: papers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3211,7 +3211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -765150924802650856, guid: 838674cbd90923349944dfc84867a487, type: 3}
+  m_Sprite: {fileID: -765150924802650856, guid: 3f31befc8bba77f4fbe79d8c9a7d25fd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6004,7 +6004,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -6986,7 +6986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8371869655511676015, guid: ff2bdb2e4b572de46bbed36ff5544c58, type: 3}
+  m_Sprite: {fileID: 8001869892075530964, guid: 7cadede9a896ffe4c8849d3a2b8be1a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
