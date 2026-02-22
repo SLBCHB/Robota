@@ -17,7 +17,7 @@ public enum RobotnikType
 public class RobotnikSpriteController : MonoBehaviour
 {
     public int currentState;
-    public int hairStyle;
+    public int currentHairStyle;
     public RobotnikDirection currentDir;
     public RobotnikType currentType;
 
@@ -39,15 +39,16 @@ public class RobotnikSpriteController : MonoBehaviour
 
     void Start()
     {
-        updateCharacter(currentType, currentDir, currentState);
+        updateCharacter(currentType, currentDir, currentHairStyle, currentState);
     }
 
-    public void updateCharacter(RobotnikType type, RobotnikDirection dir, int state)
+    public void updateCharacter(RobotnikType type, RobotnikDirection dir,int hairStyle, int state)
     {
 
         currentType = type;
         currentDir = dir;
         currentState = state;
+        currentHairStyle = hairStyle;
         frontController.gameObject.SetActive(false);
         sideController.gameObject.SetActive(false);
 

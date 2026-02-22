@@ -43,10 +43,10 @@ public class RobotnikGenerator : MonoBehaviour
             RobotnikSpriteController spriteController = gameObject.GetComponentInChildren<RobotnikSpriteController>();
             if (spriteController != null)
             {
-                int type = Random.Range(0, 2);
-                int hairStyle = Random.Range(0, 1);
+                int type = Random.Range(0, 3);
+                int hairStyle = Random.Range(0, 2);
 
-                spriteController.updateCharacter((RobotnikType)type, RobotnikDirection.Front, 0);
+                spriteController.updateCharacter((RobotnikType)type, RobotnikDirection.Front, hairStyle, 0);
             }
         }
     }
