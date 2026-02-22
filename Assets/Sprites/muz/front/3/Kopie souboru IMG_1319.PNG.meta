@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: eb94d8cb193241f4ab58fecc7ce9b150
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4996556980999139452
+    second: Kopie souboru IMG_1319_0
+  - first:
+      213: 1172464166335355027
+    second: Kopie souboru IMG_1319_1
+  - first:
+      213: -3308076031157969542
+    second: Kopie souboru IMG_1319_2
+  - first:
+      213: 2244654414620857060
+    second: Kopie souboru IMG_1319_3
+  - first:
+      213: 3699713023995118798
+    second: Kopie souboru IMG_1319_4
+  - first:
+      213: -2581668257817758974
+    second: Kopie souboru IMG_1319_5
+  - first:
+      213: -4619423313926804033
+    second: Kopie souboru IMG_1319_6
+  - first:
+      213: 352380119580119736
+    second: Kopie souboru IMG_1319_7
+  - first:
+      213: -922255450486726688
+    second: Kopie souboru IMG_1319_8
+  - first:
+      213: -6154210287794407754
+    second: Kopie souboru IMG_1319_9
+  - first:
+      213: -4098074526346260621
+    second: Kopie souboru IMG_1319_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_0
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 409
+        width: 147
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70b370f916575540800000000000000
+      internalID: 4996556980999139452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_1
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 661
+        width: 26
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3981b4282fd654010800000000000000
+      internalID: 1172464166335355027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_2
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 790
+        width: 31
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7d58d8606a5712d0800000000000000
+      internalID: -3308076031157969542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_3
+      rect:
+        serializedVersion: 2
+        x: 1636
+        y: 704
+        width: 7
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e21df22c4d962f10800000000000000
+      internalID: 2244654414620857060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_4
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 664
+        width: 8
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec48d16b465085330800000000000000
+      internalID: 3699713023995118798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_5
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 514
+        width: 13
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 203fed4d5621c2cd0800000000000000
+      internalID: -2581668257817758974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_6
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 475
+        width: 20
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd2c3288f284efb0800000000000000
+      internalID: -4619423313926804033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_7
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 516
+        width: 16
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b29b7d0ad7e3e400800000000000000
+      internalID: 352380119580119736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_8
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 388
+        width: 77
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef1299dd8d7333f0800000000000000
+      internalID: -922255450486726688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_9
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 378
+        width: 53
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b6b5f2895ad79aa0800000000000000
+      internalID: -6154210287794407754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1319_10
+      rect:
+        serializedVersion: 2
+        x: 1569
+        y: 390
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37fcd0a4ee6b027c0800000000000000
+      internalID: -4098074526346260621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Kopie souboru IMG_1319_0: 4996556980999139452
+      Kopie souboru IMG_1319_1: 1172464166335355027
+      Kopie souboru IMG_1319_10: -4098074526346260621
+      Kopie souboru IMG_1319_2: -3308076031157969542
+      Kopie souboru IMG_1319_3: 2244654414620857060
+      Kopie souboru IMG_1319_4: 3699713023995118798
+      Kopie souboru IMG_1319_5: -2581668257817758974
+      Kopie souboru IMG_1319_6: -4619423313926804033
+      Kopie souboru IMG_1319_7: 352380119580119736
+      Kopie souboru IMG_1319_8: -922255450486726688
+      Kopie souboru IMG_1319_9: -6154210287794407754
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

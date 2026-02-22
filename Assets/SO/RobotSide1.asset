@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794b49b1a6936964b8d259f1ac913b96, type: 3}
+  m_Name: RobotSide1
+  m_EditorClassIdentifier: Assembly-CSharp::ISORobotnikSideArmature
+  StateOffset:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  Head:
+  - {fileID: 21300000, guid: 7c374043cc14bce4389009e448a52564, type: 3}
+  - {fileID: 21300000, guid: 125f68f9a2502f541bdfce9fb4039c29, type: 3}
+  - {fileID: 21300000, guid: b0f3815376cfdbc43bff3c79bbc07173, type: 3}
+  Body:
+  - {fileID: 21300000, guid: e8fe3b1b5f55370429900af2cacf316c, type: 3}
+  - {fileID: 21300000, guid: 40228ba76cb1c2b4e8529e19d5ba10ea, type: 3}
+  - {fileID: 21300000, guid: 9ce89cb9601401240a78701ac4cf7c86, type: 3}
+  A:
+  - {fileID: 21300000, guid: 74835f70b3c1d6b4f915e544cb6c734b, type: 3}
+  - {fileID: 21300000, guid: ca271c9ed94707e4c974c6ba7df1a2a8, type: 3}
+  - {fileID: 21300000, guid: cc0a9b32e499cf8468ae02a9bc47afc9, type: 3}
+  L:
+  - {fileID: 21300000, guid: b2adeb1bd03ec7a4f93095d01ef7e181, type: 3}
+  - {fileID: 21300000, guid: 9d8bee3c48093174382643faf340efcf, type: 3}
+  - {fileID: 21300000, guid: 20884a8261c67da40810f8f0cefe8564, type: 3}
+  Hair:
+  - {fileID: 21300000, guid: 37ecb974a4a409e43a2d671a656b4ec3, type: 3}
+  - {fileID: 21300000, guid: de142b64f1e29be4faa82a1723e43dcc, type: 3}
+  - {fileID: 21300000, guid: 857df1cb6cbd1d14bb001a57a3df2e74, type: 3}
+  Eye:
+  - {fileID: 21300000, guid: 6ac233ffbdf98da468aecb0c29eb68e1, type: 3}
+  - {fileID: 21300000, guid: a7b4879819bfe6d4689a187b47ca3331, type: 3}
+  - {fileID: 21300000, guid: 3bb56ed79c89f1b43bb4dbec6794c63f, type: 3}

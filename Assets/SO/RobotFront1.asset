@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf7cd05980e6c947a7d052e9e304235, type: 3}
+  m_Name: RobotFront1
+  m_EditorClassIdentifier: Assembly-CSharp::ISORobotnikFrontArmature
+  StateOffset:
+  - {x: -0.23, y: 0.86}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  Head:
+  - {fileID: 21300000, guid: 0558a9029e5986b4695c805e1f570c76, type: 3}
+  - {fileID: 21300000, guid: ffc26bfb409962b40a3865cb3d275a46, type: 3}
+  - {fileID: 21300000, guid: fd4fba99b79409f4b88ed099f6337148, type: 3}
+  Body:
+  - {fileID: 21300000, guid: 1ae7690138256e34a9221de68c9433ac, type: 3}
+  - {fileID: 21300000, guid: 7de1bcbc3fd96f746ac7fe8057ff86e6, type: 3}
+  - {fileID: 21300000, guid: 78fe52aa2ae016a44a886b6d7761c9ad, type: 3}
+  RA:
+  - {fileID: 21300000, guid: 1b2a385bb4405f640b061cc478d42bf8, type: 3}
+  - {fileID: 21300000, guid: d23bee659a43bfc4088b6ae4643b618d, type: 3}
+  - {fileID: 21300000, guid: 43fb26444774f2146b3134d791dfa7c0, type: 3}
+  LA:
+  - {fileID: 21300000, guid: f231fda26b4da394dbb72b29b68fbde7, type: 3}
+  - {fileID: 21300000, guid: 44a042e87e437d744ae851d72fab91e6, type: 3}
+  - {fileID: 21300000, guid: cf210c08b117d7648a8eb9502e70ed34, type: 3}
+  RL:
+  - {fileID: 21300000, guid: f09b101a2fb7d1943b73450ff45915a9, type: 3}
+  - {fileID: 21300000, guid: 61cc92daa90909846b5fb4e9a35924e7, type: 3}
+  - {fileID: 21300000, guid: 9bf4da3692848734f92ad81734a5f9c7, type: 3}
+  LL:
+  - {fileID: 21300000, guid: 5182f8a48c15c2d47aef084be02ccbb0, type: 3}
+  - {fileID: 21300000, guid: d8a2848365063c2489189a3f2fa6de5c, type: 3}
+  - {fileID: 21300000, guid: 24fc2ed7ca416df45ba2465d2ca9af33, type: 3}
+  Hair:
+  - {fileID: 21300000, guid: e5ab48f291aecb84fab8b731c45cc1c3, type: 3}
+  - {fileID: 21300000, guid: 8178701fdc1d2bf4f9bfe62a40529fc6, type: 3}
+  - {fileID: 21300000, guid: bcaed55a3fd2fde438624f635f0ccc3f, type: 3}
+  Eyes:
+  - {fileID: 21300000, guid: 4e717de8bb042224fb51aefd360f82ee, type: 3}
+  - {fileID: 21300000, guid: 027c93badf8115742aecd55ac2ba1cf0, type: 3}
+  - {fileID: 21300000, guid: c958effaa29656f42b57610be80790aa, type: 3}

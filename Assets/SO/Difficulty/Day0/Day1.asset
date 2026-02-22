@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SODifficulty
   day: 1
   RobotnikCount: 10
+  requiredFitness: 900
   currentDateEditor: {x: 2030, y: 1, z: 1}
+  currentTimeEditor: {x: 6, y: 0}
   robotnikProbability: {fileID: 11400000, guid: d5d58c193c086b1419e1737e576a4ffd, type: 2}
   robotnikProperitesCap: {fileID: 11400000, guid: 29c6d18c309dc4e41a50060592ef9638, type: 2}

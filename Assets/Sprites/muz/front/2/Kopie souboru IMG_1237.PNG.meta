@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: ec562bec98fb9124897efa715f083f38
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8261215870365116763
+    second: Kopie souboru IMG_1237_0
+  - first:
+      213: 7744116891416451987
+    second: Kopie souboru IMG_1237_1
+  - first:
+      213: 1965942369859299136
+    second: Kopie souboru IMG_1237_2
+  - first:
+      213: -7919653167661754529
+    second: Kopie souboru IMG_1237_3
+  - first:
+      213: -7955890117913622776
+    second: Kopie souboru IMG_1237_4
+  - first:
+      213: -3632037323439530705
+    second: Kopie souboru IMG_1237_5
+  - first:
+      213: 2245156396294218586
+    second: Kopie souboru IMG_1237_6
+  - first:
+      213: -5813107037144152936
+    second: Kopie souboru IMG_1237_7
+  - first:
+      213: 7598384962890504560
+    second: Kopie souboru IMG_1237_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1237_0
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 1134
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b59aee5701cb5a270800000000000000
+      internalID: 8261215870365116763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1237_1
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 1137
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39bdafb5841a87b60800000000000000
+      internalID: 7744116891416451987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1237_2
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 769
+        width: 282
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0476a5c5b2e684b10800000000000000
+      internalID: 1965942369859299136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1237_3
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 1137
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f575935776db71290800000000000000
+      internalID: -7919653167661754529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1237_4
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 1135
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807c7b10710079190800000000000000
+      internalID: -7955890117913622776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1237_5
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 927
+        width: 7
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2d1d653c49689dc0800000000000000
+      internalID: -3632037323439530705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1237_6
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 877
+        width: 30
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a53205ad8d5682f10800000000000000
+      internalID: 2245156396294218586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1237_7
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 877
+        width: 24
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89403b9e2f1b35fa0800000000000000
+      internalID: -5813107037144152936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kopie souboru IMG_1237_8
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 927
+        width: 6
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07912c3add2e27960800000000000000
+      internalID: 7598384962890504560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Kopie souboru IMG_1237_0: 8261215870365116763
+      Kopie souboru IMG_1237_1: 7744116891416451987
+      Kopie souboru IMG_1237_2: 1965942369859299136
+      Kopie souboru IMG_1237_3: -7919653167661754529
+      Kopie souboru IMG_1237_4: -7955890117913622776
+      Kopie souboru IMG_1237_5: -3632037323439530705
+      Kopie souboru IMG_1237_6: 2245156396294218586
+      Kopie souboru IMG_1237_7: -5813107037144152936
+      Kopie souboru IMG_1237_8: 7598384962890504560
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

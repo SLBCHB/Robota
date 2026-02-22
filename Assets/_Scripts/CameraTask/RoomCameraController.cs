@@ -6,6 +6,7 @@ public class RoomCameraController : MonoBehaviour
 {
     [SerializeField] private GameObject camera;
     [SerializeField] private List<Transform> cameraPos;
+    [SerializeField] private List<GameObject> activeUi;
 
     private int currentCameraPos = 0; 
 
@@ -35,5 +36,12 @@ public class RoomCameraController : MonoBehaviour
             currentCameraPos = cameraPosIndex;
 
         camera.transform.position = cameraPos[currentCameraPos].position;
+
+        foreach(GameObject ui in activeUi)
+        {
+            ui.gameObject.SetActive(false);
+        }
+
+        activeUi[currentCameraPos].SetActive(true);
     }
 }

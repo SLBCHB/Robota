@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794b49b1a6936964b8d259f1ac913b96, type: 3}
+  m_Name: GrilSide2
+  m_EditorClassIdentifier: Assembly-CSharp::ISORobotnikSideArmature
+  StateOffset:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  Head:
+  - {fileID: 21300000, guid: aade07445684bad439246dc93a2f874d, type: 3}
+  - {fileID: 21300000, guid: 713ce7b9f21cc4749b9abd3d19148005, type: 3}
+  - {fileID: 21300000, guid: 353ba5e4a39e3a041be1a9deef79feb3, type: 3}
+  Body:
+  - {fileID: 21300000, guid: 877671399a672f34fb6e5c788f5ace2d, type: 3}
+  - {fileID: 21300000, guid: 439c6697abe962142a399f60525916c0, type: 3}
+  - {fileID: 21300000, guid: e4e7a6b7f5b06c14b8e8456d38b7d67a, type: 3}
+  A:
+  - {fileID: 21300000, guid: 0a0448a9eef868b469a080120ed8f8d4, type: 3}
+  - {fileID: 21300000, guid: 7bde495f7c1ef5c478ba7f2c9b6c8003, type: 3}
+  - {fileID: 21300000, guid: 42ee49583714a1f46adfb337ff6bf835, type: 3}
+  L:
+  - {fileID: 21300000, guid: d380ad752f70e6147a7b16cb255739ca, type: 3}
+  - {fileID: 21300000, guid: 9e3238dbdc177fc40a48cf0c848861e1, type: 3}
+  - {fileID: 21300000, guid: 4080668c6d7f19849ad414184f4b746b, type: 3}
+  Hair:
+  - {fileID: 21300000, guid: 216978d328a50264f8414bd9d377cf1b, type: 3}
+  - {fileID: 21300000, guid: 2e5b7c31bc4318b41a953a42036c7518, type: 3}
+  - {fileID: 21300000, guid: 71a24b71377a0ad48872cb4023956626, type: 3}
+  Eye:
+  - {fileID: 21300000, guid: 4c9aaf8d86cbfac41bac0bf5e4861bdd, type: 3}
+  - {fileID: 21300000, guid: 67d5169286837cb478fc41fe6feb91fc, type: 3}
+  - {fileID: 21300000, guid: 6007134f0a36ed3439414ee726cabe3c, type: 3}

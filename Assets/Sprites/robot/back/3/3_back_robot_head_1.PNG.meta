@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 93bab2f72ca151b48b61a8881a237afd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9175162930671206303
+    second: 3_back_robot_head_1_0
+  - first:
+      213: -2728767231319609827
+    second: 3_back_robot_head_1_1
+  - first:
+      213: -458569062934652168
+    second: 3_back_robot_head_1_2
+  - first:
+      213: -5258956620643466134
+    second: 3_back_robot_head_1_3
+  - first:
+      213: 6563441106145313649
+    second: 3_back_robot_head_1_4
+  - first:
+      213: -6485962225029330811
+    second: 3_back_robot_head_1_5
+  - first:
+      213: -2175126283820177810
+    second: 3_back_robot_head_1_6
+  - first:
+      213: -4613945609446209465
+    second: 3_back_robot_head_1_7
+  - first:
+      213: 3438225235511915536
+    second: 3_back_robot_head_1_8
+  - first:
+      213: 1699586167302437033
+    second: 3_back_robot_head_1_9
+  - first:
+      213: 6237626889991154077
+    second: 3_back_robot_head_1_10
+  - first:
+      213: 908963905637827225
+    second: 3_back_robot_head_1_11
+  - first:
+      213: -2918675112865019600
+    second: 3_back_robot_head_1_12
+  - first:
+      213: 2627468086580942053
+    second: 3_back_robot_head_1_13
+  - first:
+      213: -5217805872563920979
+    second: 3_back_robot_head_1_14
+  - first:
+      213: 2315054612152816864
+    second: 3_back_robot_head_1_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_0
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1008
+        width: 588
+        height: 507
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f3df6c21ab45f70800000000000000
+      internalID: 9175162930671206303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_1
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 1495
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ee77629a8712ad0800000000000000
+      internalID: -2728767231319609827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_2
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1496
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fadbcaedd5d2a9f0800000000000000
+      internalID: -458569062934652168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_3
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1214
+        width: 40
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a648b5111de6407b0800000000000000
+      internalID: -5258956620643466134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_4
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 1210
+        width: 107
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1730df359e6061b50800000000000000
+      internalID: 6563441106145313649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_5
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 1193
+        width: 48
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 588468e68bb3df5a0800000000000000
+      internalID: -6485962225029330811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_6
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1210
+        width: 106
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66684f4b2660d1e0800000000000000
+      internalID: -2175126283820177810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_7
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 1193
+        width: 48
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7484cf7f9e8f7ffb0800000000000000
+      internalID: -4613945609446209465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_8
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 1214
+        width: 40
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 014b87c92a707bf20800000000000000
+      internalID: 3438225235511915536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_9
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 1133
+        width: 6
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a8ba374d94269710800000000000000
+      internalID: 1699586167302437033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_10
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1122
+        width: 9
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d99e85bab90809650800000000000000
+      internalID: 6237626889991154077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_11
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1122
+        width: 9
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992c1353bd94d9c00800000000000000
+      internalID: 908963905637827225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_12
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1133
+        width: 7
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03948ead278ce77d0800000000000000
+      internalID: -2918675112865019600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_13
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 1034
+        width: 120
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e41557cd44a67420800000000000000
+      internalID: 2627468086580942053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_14
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 1034
+        width: 120
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daf51ea3431a697b0800000000000000
+      internalID: -5217805872563920979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_robot_head_1_15
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 995
+        width: 269
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e49ff077e9b02020800000000000000
+      internalID: 2315054612152816864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      3_back_robot_head_1_0: 9175162930671206303
+      3_back_robot_head_1_1: -2728767231319609827
+      3_back_robot_head_1_10: 6237626889991154077
+      3_back_robot_head_1_11: 908963905637827225
+      3_back_robot_head_1_12: -2918675112865019600
+      3_back_robot_head_1_13: 2627468086580942053
+      3_back_robot_head_1_14: -5217805872563920979
+      3_back_robot_head_1_15: 2315054612152816864
+      3_back_robot_head_1_2: -458569062934652168
+      3_back_robot_head_1_3: -5258956620643466134
+      3_back_robot_head_1_4: 6563441106145313649
+      3_back_robot_head_1_5: -6485962225029330811
+      3_back_robot_head_1_6: -2175126283820177810
+      3_back_robot_head_1_7: -4613945609446209465
+      3_back_robot_head_1_8: 3438225235511915536
+      3_back_robot_head_1_9: 1699586167302437033
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
