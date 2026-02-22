@@ -44,6 +44,10 @@ public class RobotnikSpriteController : MonoBehaviour
 
     public void updateCharacter(RobotnikType type, RobotnikDirection dir, int state)
     {
+
+        currentType = type;
+        currentDir = dir;
+        currentState = state;
         frontController.gameObject.SetActive(false);
         sideController.gameObject.SetActive(false);
 
