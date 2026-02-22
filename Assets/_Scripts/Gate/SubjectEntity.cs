@@ -162,6 +162,7 @@ public class SubjectEntity : CameraObject
         if (idCardPrefab == null) return null;
         
         GameObject card = Instantiate(idCardPrefab, itemThrowPos.position, Quaternion.identity);
+        card.GetComponent<Keycard>().isValidCard = GetComponent<Robotnik>().robotnikProperties.validCard;
 
         if (card.TryGetComponent(out SpriteRenderer cardSprite))
         {
