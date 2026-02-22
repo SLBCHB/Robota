@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public enum GameScene
 {
     MainMenu,
+    loopVjck,
     Loading,
     Intro,
     johny,

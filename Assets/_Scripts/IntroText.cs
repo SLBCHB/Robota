@@ -69,7 +69,7 @@ public class IntroText : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SoundManager.Instance.PlaySFX("startup");
+       
         day = DifficultyManager.Instance.dayCounter;
         data = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         text.text += "\n[  <color=green>OK</color>  ][" + data + "]System init";
@@ -80,8 +80,28 @@ public class IntroText : MonoBehaviour
 
     }
 
+    [SerializeField] private GameObject screen1;
+    [SerializeField] private GameObject screen2;
+
     IEnumerator UpdateText()
     {
+        yield return new WaitForSeconds(0.75f);
+        screen1.SetActive(true);
+        yield return StartCoroutine(SceneController.Instance.Fade(0f));
+        yield return new WaitForSeconds(10f);
+        screen1.SetActive(false);
+        yield return StartCoroutine(SceneController.Instance.Fade(1f));
+        screen2.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(SceneController.Instance.Fade(0f));
+        yield return new WaitForSeconds(10f);
+        yield return StartCoroutine(SceneController.Instance.Fade(1f));
+        screen2.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(SceneController.Instance.Fade(0f));
+
+        SoundManager.Instance.PlaySFX("startup");
+        text.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.75f);
         for (int i = 0; i < messages.Length; i++)
         {
@@ -106,7 +126,7 @@ public class IntroText : MonoBehaviour
         textDay.gameObject.SetActive(false);
 
 
-        SceneController.Instance.LoadScene(GameScene.Map);
+        SceneController.Instance.LoadScene(GameScene.loopVjck);
     }
 
 }
