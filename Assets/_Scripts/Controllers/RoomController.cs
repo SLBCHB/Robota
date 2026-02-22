@@ -46,6 +46,25 @@ public class RoomController : Singleton<RoomController>
         }
     }
 
+    public Transform getRandomDesk()
+    {
+        List<Transform> availableDesks = new List<Transform>();
+        for (int i = 0; i < sittingRobotniks.Length; i++)
+        {
+            if (sittingRobotniks[i] == null)
+            {
+                availableDesks.Add(deskSpawnPoints[i]);
+            }
+        }
+        if (availableDesks.Count == 0)
+        {
+            Debug.LogWarning("[RoomController] Není žádný volný stůl!");
+            return null;
+        }
+        int randomIndex = Random.Range(0, availableDesks.Count);
+        return availableDesks[randomIndex];
+    }
+
     public void removeRobotnik(int deskIndex)
     {
         if (deskIndex < 0 || deskIndex >= sittingRobotniks.Length)

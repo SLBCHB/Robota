@@ -10,6 +10,7 @@ public class ClickToMove : MonoBehaviour
     }
     public State state;
 
+    public Transform desk;
     public Transform goal;
     private NavMeshAgent agent;
     private NavMeshObstacle obstacle;
@@ -17,6 +18,10 @@ public class ClickToMove : MonoBehaviour
     public bool agentisstoped;
 
     public float detectionRange = 0.1f;
+
+    // Add a 'flip' variable to control sprite flipping. 
+    // You may want to set this based on your logic, here it's set to false by default.
+    private bool flip = false;
 
 
     void Start()
@@ -36,6 +41,13 @@ public class ClickToMove : MonoBehaviour
                 state = State.Stopped;
                 agent.enabled = false;
                 obstacle.enabled = true;
+                gameObject.GetComponent<Robotnik>().dir = RobotnikDirection.Side;
+                gameObject.GetComponent<Robotnik>().setVizual();
+                Transform spriteRoot = gameObject.GetComponentInChildren<RobotnikSpriteController>().transform;
+
+                
+
+               
                 Debug.Log("Stopping");
             }
         }
@@ -43,6 +55,10 @@ public class ClickToMove : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, goal.position) >= detectionRange)
             {
+                gameObject.GetComponent<Robotnik>().dir = RobotnikDirection.Front;
+                gameObject.GetComponent<Robotnik>().setVizual();
+                Transform spriteRoot = gameObject.GetComponentInChildren<RobotnikSpriteController>().transform;
+
                 state = State.Moving;
                 obstacle.enabled = false;
                 agent.enabled = true;

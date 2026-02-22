@@ -22,6 +22,7 @@ public class InputManager : Singleton<InputManager>, InputSystem_Actions.IPlayer
     private void OnEnable()
     {
         PlayerInputEnable();
+        UiInputEnable();
     }
 
     private void OnDisable()
