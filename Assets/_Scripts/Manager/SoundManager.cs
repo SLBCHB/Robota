@@ -16,21 +16,44 @@ public class SoundManager : Singleton<SoundManager>
 
     protected override void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Instance.MergeClips(this.musicClips, this.sfxClips);
+            Destroy(gameObject);
+            return;
+        }
+
         base.Awake();
 
         musicDict = new Dictionary<string, AudioClip>();
         sfxDict = new Dictionary<string, AudioClip>();
+        MergeClips(this.musicClips, this.sfxClips);
+    }
 
-        foreach (var clip in musicClips)
+    public void MergeClips(List<AudioClip> newMusic, List<AudioClip> newSfx)
+    {
+        if (newMusic != null)
         {
-            if (clip != null && !musicDict.ContainsKey(clip.name))
-                musicDict.Add(clip.name, clip);
+            foreach (var clip in newMusic)
+            {
+                if (clip != null && !musicDict.ContainsKey(clip.name))
+                {
+                    musicDict.Add(clip.name, clip);
+                    musicClips.Add(clip); 
+                }
+            }
         }
 
-        foreach (var clip in sfxClips)
+        if (newSfx != null)
         {
-            if (clip != null && !sfxDict.ContainsKey(clip.name))
-                sfxDict.Add(clip.name, clip);
+            foreach (var clip in newSfx)
+            {
+                if (clip != null && !sfxDict.ContainsKey(clip.name))
+                {
+                    sfxDict.Add(clip.name, clip);
+                    sfxClips.Add(clip);
+                }
+            }
         }
     }
 
