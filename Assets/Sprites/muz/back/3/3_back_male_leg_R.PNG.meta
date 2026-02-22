@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: 20b22c449dec54a4091b9822c2ebd45b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1258426601738204555
+    second: 3_back_male_leg_R_0
+  - first:
+      213: -5711604041751459575
+    second: 3_back_male_leg_R_1
+  - first:
+      213: 8634734863540937331
+    second: 3_back_male_leg_R_2
+  - first:
+      213: -4745958471884991055
+    second: 3_back_male_leg_R_3
+  - first:
+      213: -8544338192953473796
+    second: 3_back_male_leg_R_4
+  - first:
+      213: -5902838350055049687
+    second: 3_back_male_leg_R_5
+  - first:
+      213: -1534605236414307237
+    second: 3_back_male_leg_R_6
+  - first:
+      213: 6757783859041536703
+    second: 3_back_male_leg_R_7
+  - first:
+      213: 5308772083701046142
+    second: 3_back_male_leg_R_8
+  - first:
+      213: 9155795782037639486
+    second: 3_back_male_leg_R_9
+  - first:
+      213: 1002325320553931255
+    second: 3_back_male_leg_R_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_0
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 299
+        width: 152
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85f18ca354d67110800000000000000
+      internalID: 1258426601738204555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_1
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 551
+        width: 26
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90908b9a26e4cb0b0800000000000000
+      internalID: -5711604041751459575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_2
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 680
+        width: 31
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372e90f0c9db4d770800000000000000
+      internalID: 8634734863540937331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_3
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 594
+        width: 7
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b51a8c3ae7f22eb0800000000000000
+      internalID: -4745958471884991055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_4
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 554
+        width: 8
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf48430fea96c6980800000000000000
+      internalID: -8544338192953473796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_5
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 404
+        width: 13
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9267a629bc7e41ea0800000000000000
+      internalID: -5902838350055049687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_6
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 365
+        width: 20
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54221d0bacf3bae0800000000000000
+      internalID: -1534605236414307237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_7
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 406
+        width: 16
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba0a039d9878cd50800000000000000
+      internalID: 6757783859041536703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_8
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 278
+        width: 77
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7bd282451c8ca940800000000000000
+      internalID: 5308772083701046142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_9
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 268
+        width: 53
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e319f5811cbef0f70800000000000000
+      internalID: 9155795782037639486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_back_male_leg_R_10
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 280
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f12ff88199f8ed00800000000000000
+      internalID: 1002325320553931255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      3_back_male_leg_R_0: 1258426601738204555
+      3_back_male_leg_R_1: -5711604041751459575
+      3_back_male_leg_R_10: 1002325320553931255
+      3_back_male_leg_R_2: 8634734863540937331
+      3_back_male_leg_R_3: -4745958471884991055
+      3_back_male_leg_R_4: -8544338192953473796
+      3_back_male_leg_R_5: -5902838350055049687
+      3_back_male_leg_R_6: -1534605236414307237
+      3_back_male_leg_R_7: 6757783859041536703
+      3_back_male_leg_R_8: 5308772083701046142
+      3_back_male_leg_R_9: 9155795782037639486
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

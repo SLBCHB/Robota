@@ -51,6 +51,11 @@ public class Robotnik: MonoBehaviour
             $"clockIn: {robotnikProperties.clockInTime}, {robotnikValidProperties.clockInTime}\n" +
             $"clockOut: {robotnikProperties.clockOutTime}, {robotnikValidProperties.clockOutTime}\n");
     }
+
+    public int getEarnedProgress()
+    {
+        return 1;
+    }
 }
 
 #if UNITY_EDITOR

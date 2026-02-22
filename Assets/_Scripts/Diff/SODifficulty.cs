@@ -6,6 +6,7 @@ public class SODifficulty : ScriptableObject
 {
     public int day;
     public int RobotnikCount;
+    public int requiredFitness;
     [Header("Current Date (Year, Month, Day)")]
     [SerializeField] private Vector3Int currentDateEditor = new Vector3Int(1982, 10, 24);
     public DateTime currentDate => new DateTime(currentDateEditor.x, currentDateEditor.y, currentDateEditor.z);

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794b49b1a6936964b8d259f1ac913b96, type: 3}
+  m_Name: MaleSide1
+  m_EditorClassIdentifier: Assembly-CSharp::ISORobotnikSideArmature
+  StateOffset:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  Head:
+  - {fileID: 21300000, guid: 3ad588520b582e24f84b86874a7273b2, type: 3}
+  - {fileID: 21300000, guid: 5a6a24da3a9ce82459464ff2b1b102c0, type: 3}
+  - {fileID: 21300000, guid: 1cbf779aeea1e4840a10ac914d2b5dcb, type: 3}
+  Body:
+  - {fileID: 21300000, guid: 6b1213aad312abd4cb42847b9f46baac, type: 3}
+  - {fileID: 21300000, guid: 292d24c0a58824348a3374cf5507e7ee, type: 3}
+  - {fileID: 21300000, guid: ae36d6c69944c2b40b12bf65035c357b, type: 3}
+  A:
+  - {fileID: 21300000, guid: 75ed39307e09fb549bbb4f75118e931f, type: 3}
+  - {fileID: 21300000, guid: a25fc1b07bee64f4a91fb10bd582b516, type: 3}
+  - {fileID: 21300000, guid: e51518ff3b5965741b4f8db0b697c3d8, type: 3}
+  L:
+  - {fileID: 21300000, guid: f406821902d75014795e14ad8153816b, type: 3}
+  - {fileID: 21300000, guid: 14e676221369d214a9b2ea20a9a41dc0, type: 3}
+  - {fileID: 21300000, guid: 86a6a36cd8d03ae40ac0966d88dbd934, type: 3}
+  Hair:
+  - {fileID: 21300000, guid: 0e2db0559b6d4204581114b9589e9fd9, type: 3}
+  - {fileID: 21300000, guid: 2d275d8eb96a87b4caa87082577e51e3, type: 3}
+  - {fileID: 21300000, guid: 4b1baf5f980164947aac262121dbc7cd, type: 3}
+  Eye:
+  - {fileID: 21300000, guid: be883bf2df7541d4d9a706d74008c3c6, type: 3}
+  - {fileID: 21300000, guid: 8972750616621ca4d8d5be0483ee627b, type: 3}
+  - {fileID: 21300000, guid: b3c870ee1338f25498af260ce5dc5113, type: 3}

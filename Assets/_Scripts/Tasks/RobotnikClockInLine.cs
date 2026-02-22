@@ -9,6 +9,7 @@ public class RobotnikClockInLine : MonoBehaviour
 
     [SerializeField] private Transform lineStop;
     [SerializeField] private Transform lineEnd;
+    [SerializeField] private Transform declinePos;
 
     [SerializeField] private RobotnikInfoDisplayer infoDisplayer;
 
@@ -21,6 +22,7 @@ public class RobotnikClockInLine : MonoBehaviour
     {
         robotnici = RobotnikManager.Instance.robotnici;
         infoDisplayer.displayDateTime(DifficultyManager.Instance.getCurrentDifficulty().currentDate, DifficultyManager.Instance.getCurrentDifficulty().currentTime);
+        NextInLine();
     }
 
     public void MoveOn(int index, Vector3 targetPosition, float moveSpeed)
@@ -68,21 +70,44 @@ public class RobotnikClockInLine : MonoBehaviour
 
     public void NextInLine()
     {
+        if (RoomController.Instance.getDeskCount() <= RoomController.Instance.getSittingCount())
+            return;
+
         if(!onStop)
-            StartCoroutine(NextInLineRoutine());
+            StartCoroutine(AcceptedMoveRoutine());
+    }
+
+    public void DeclineInLine()
+    {
+        StartCoroutine(DeclineMoveRoutine());
+    }
+
+    private IEnumerator DeclineMoveRoutine()
+    {
+        onStop = true;
+        MoveOn(currentOnStop, new Vector3(declinePos.position.x, declinePos.position.y), speed);
+        currentOnStop++;
+
+        StartCoroutine(NextInLineRoutine());
+        yield return null;
+    }
+
+    private IEnumerator AcceptedMoveRoutine()
+    {
+        onStop = true;
+        if (currentOnStop < robotnici.Count && currentOnStop >= 0)
+        {
+            RoomController.Instance.sitNextRobotnik(robotnici[currentOnStop]);
+        }
+        currentOnStop++;
+
+        StartCoroutine(NextInLineRoutine());
+        yield return null;
     }
 
     private IEnumerator NextInLineRoutine()
     {
-        onStop = true;
-        if (currentOnStop < robotnici.Count)
-        {
-            MoveOn(currentOnStop, lineEnd.position, speed);
-            yield return new WaitForSeconds(0.5f);
-        }
-        currentOnStop++;
-
-
+        
         for (int i = currentOnStop; i < robotnici.Count; i++)
         {
             int positionInQueue = i - currentOnStop;
