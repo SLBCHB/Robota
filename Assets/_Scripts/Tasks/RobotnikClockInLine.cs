@@ -97,7 +97,7 @@ public class RobotnikClockInLine : MonoBehaviour
         onStop = true;
         if (currentOnStop < robotnici.Count && currentOnStop >= 0)
         {
-            RoomController.Instance.sitNextRobotnik(robotnici[currentOnStop]);
+           RoomController.Instance.sitNextRobotnik(robotnici[currentOnStop]);
         }
         currentOnStop++;
 

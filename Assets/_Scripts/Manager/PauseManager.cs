@@ -31,13 +31,13 @@ public class PauseManager : Singleton<PauseManager>
         if (_isPaused)
         {
             // Use your InputManager's built-in switching methods!
-            InputManager.Instance.SwitchToUI();
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         else
         {
-            InputManager.Instance.SwitchToPlayer();
+            
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

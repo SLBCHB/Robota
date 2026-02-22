@@ -19,7 +19,11 @@ public class RobotnikGenerator : MonoBehaviour
     {
         generateRobotniksForLine();
         inLineController.Init();
+
     }
+
+
+ 
 
     public void generateRobotniksForLine()
     {
@@ -45,9 +49,10 @@ public class RobotnikGenerator : MonoBehaviour
         }
     }
 
+
     public void RegenRobotnikWorRoom(Robotnik robotnik)
     {
-
+        RobotMan.Instance.HireEmployee(robotnik);
     }
 
     private (RobotnikPropertiesModel properties, RobotnikValidPropertiesModel validProperties) GenerateRobotnikProperties(SORobotnikProbability robotnikProbability, SORobotnikProperitesCap robotnikProperitesCap)
