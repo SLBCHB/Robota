@@ -229,7 +229,7 @@ MonoBehaviour:
   grabPoint: {fileID: 3879098901332271243}
   idCardPrefab: {fileID: 2320092807018320162, guid: 30a579bd1e546d947911592d15845495, type: 3}
   itemThrowPos: {fileID: 1889751978306706297}
-  throwForce: {x: 0, y: -3}
+  throwForce: {x: 15, y: -3}
   receiveRadius: 1.5
   idCardTag: IDCard
   canBeProcessed: 0
