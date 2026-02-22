@@ -945,7 +945,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 0, g: 1, b: 0.061501026, a: 1}
-  m_Intensity: 200
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000d33fca80
@@ -1619,20 +1619,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d440de528cd3fb7479bef2f69b702cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SubjectEntity
---- !u!1 &1287824052 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5563849643583107308, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
-  m_PrefabInstance: {fileID: 4144574359380899408}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1336770329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4179899256280464180, guid: 30a579bd1e546d947911592d15845495, type: 3}
   m_PrefabInstance: {fileID: 9001518669322526878}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1414353875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 43958501576030846, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
-  m_PrefabInstance: {fileID: 4144574359380899408}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1433996799
 GameObject:
@@ -3195,11 +3185,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 28.16229, y: 15.359999}
   m_EdgeRadius: 0
---- !u!1 &2039869208 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 834030405717502476, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
-  m_PrefabInstance: {fileID: 4144574359380899408}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2040724884
 GameObject:
   m_ObjectHideFlags: 8
@@ -3569,33 +3554,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card Scanner
       objectReference: {fileID: 0}
-    - target: {fileID: 2946773185578727870, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
-      propertyPath: deniedLed
-      value: 
-      objectReference: {fileID: 1414353875}
-    - target: {fileID: 2946773185578727870, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
-      propertyPath: grantedLed
-      value: 
-      objectReference: {fileID: 1287824052}
-    - target: {fileID: 2946773185578727870, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
-      propertyPath: OnScanSuccess.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2946773185578727870, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
-      propertyPath: OnScanSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2039869208}
-    - target: {fileID: 2946773185578727870, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
-      propertyPath: OnScanSuccess.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3051170428829559290, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.78
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 3051170428829559290, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.96
+      value: -5.21
       objectReference: {fileID: 0}
     - target: {fileID: 3051170428829559290, guid: cc13142451b42e842bbb83799fbb7bf4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3886,6 +3851,10 @@ PrefabInstance:
     - target: {fileID: 2320092807018320162, guid: 30a579bd1e546d947911592d15845495, type: 3}
       propertyPath: m_Name
       value: Keycard
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320092807018320162, guid: 30a579bd1e546d947911592d15845495, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4179899256280464180, guid: 30a579bd1e546d947911592d15845495, type: 3}
       propertyPath: m_LocalPosition.x

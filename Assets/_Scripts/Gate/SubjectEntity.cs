@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class SubjectEntity : CameraObject
 {
@@ -13,12 +14,25 @@ public class SubjectEntity : CameraObject
 
     [Header("Grab Settings")]
     public Transform grabPoint;
+    
+    [Header("ID Card Setup")]
+    public GameObject idCardPrefab;
+    public Transform itemThrowPos;
+    public Vector2 throwForce = new Vector2(0f, -5f);
+    
+    [Header("Return Mechanics")]
+    [Tooltip("How close the card needs to be dropped to the throw pos to be caught")]
+    public float receiveRadius = 1.5f;
+    [Tooltip("The tag we use to identify the ID Card")]
+    public string idCardTag = "IDCard";
 
     public bool IsProcessed { get; set; }
     public bool IsSliding => _isReturning;
+    public bool HasReturnedID { get; private set; } = false;
     
     private bool _isReturning = false; 
     private Vector2 _returnVelocity; 
+    private float _ignoreItemTimer = 0f; 
 
     protected override void Start()
     {
@@ -42,15 +56,21 @@ public class SubjectEntity : CameraObject
             ClampVerticalPosition();
             return;
         }
-
         base.FixedUpdate();
 
         if (!IsBeingDragged)
         {
             HandleReturnToBase();
         }
-
         ClampVerticalPosition();
+        if (_ignoreItemTimer > 0)
+        {
+            _ignoreItemTimer -= Time.fixedDeltaTime; 
+        }
+        else if (!HasReturnedID && !IsSliding)
+        {
+            CheckForReturnedItem();
+        }
     }
 
     private void HandleReturnToBase()
@@ -121,5 +141,78 @@ public class SubjectEntity : CameraObject
         if (col != null) col.enabled = isInteractable;
 
         gameObject.tag = isInteractable ? "interactable" : "Untagged";
+    }
+    
+    public GameObject TossIDCard()
+    {
+        if (idCardPrefab == null) return null;
+        
+        GameObject card = Instantiate(idCardPrefab, itemThrowPos.position, Quaternion.identity);
+
+        if (card.TryGetComponent(out SpriteRenderer cardSprite))
+        {
+            cardSprite.sortingOrder = 50; 
+        }
+
+        if (card.TryGetComponent(out Rigidbody2D cardRb))
+        {
+            Vector2 massiveThrowForce = new Vector2(Random.Range(-5f, 5f), -25f);
+            cardRb.linearVelocity = massiveThrowForce;
+            cardRb.angularVelocity = Random.Range(-360f, 360f);
+        }
+
+        _ignoreItemTimer = 1.5f; 
+
+        return card;
+    }
+
+    private void CheckForReturnedItem()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(itemThrowPos.position, receiveRadius);
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag(idCardTag))
+            {
+                if (hit.TryGetComponent(out CameraObject camObj) && !camObj.IsBeingDragged)
+                {
+                    HasReturnedID = true;
+                    StartCoroutine(AbsorbItemRoutine(camObj));
+                    break;
+                }
+            }
+        }
+    }
+
+    private IEnumerator AbsorbItemRoutine(CameraObject item)
+    {
+        item.enabled = false;
+        
+        if (item.TryGetComponent(out Rigidbody2D itemRb))
+        {
+            itemRb.isKinematic = true;
+            itemRb.linearVelocity = Vector2.zero;
+            itemRb.angularVelocity = 0f;
+        }
+
+        if (item.TryGetComponent(out Collider2D col)) col.enabled = false;
+
+        Vector3 startPos = item.transform.position;
+        Vector3 startScale = item.transform.localScale;
+        float elapsed = 0f;
+        float duration = 0.2f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            
+            item.transform.position = Vector3.Lerp(startPos, itemThrowPos.position, t);
+            item.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, t); // Shrinks to 0
+            
+            yield return null;
+        }
+
+        Destroy(item.gameObject);
+        Debug.Log($"<color=cyan>{gameObject.name} tucked their ID safely away!</color>");
     }
 }
