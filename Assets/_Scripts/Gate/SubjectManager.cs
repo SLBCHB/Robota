@@ -85,7 +85,8 @@ public class SubjectManager : MonoBehaviour
             // POSUN NA PŘEPÁŽKU
             if (_activeSubject != null && activeSpot != null)
             {
-                _activeSubject.GetComponent<SubjectEntity>().MoveToNewSpot(activeSpot); 
+                _activeSubject.GetComponent<SubjectEntity>().MoveToNewSpot(activeSpot);
+                _activeSubject.GetComponent<SubjectEntity>().isActiveInQueue = true;
                 _activeSubject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
                 SetSortingOrder(_activeSubject, activeSortingOrder);
                 _activeSubject.GetComponent<SubjectEntity>().SetInteractable(true);
