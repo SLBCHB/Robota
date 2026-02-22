@@ -38,6 +38,11 @@ public class GameManager : Singleton<GameManager>
             FitnessTick();
             fitnessTimeAccumulator -= timeToAdd;
         }
+
+        if (earendFitness >= DifficultyManager.Instance.getCurrentDifficulty().requiredFitness) ;
+        {
+            SceneController.Instance.LoadScene(GameScene.GoodEnd);
+        }
     }
 
     private void FitnessTick()

@@ -57,8 +57,25 @@ public class SubjectManager : MonoBehaviour
         }
     }
 
-    public void HandleSubjectProcessed(SubjectEntity processedSubject)
+    public void HandleSubjectProcessedPassed(SubjectEntity processedSubject)
     {
+
+        if (processedSubject != null)
+        {
+            RobotMan.Instance.HireEmployee(processedSubject.gameObject.GetComponent<Robotnik>());
+        }
+
+        if (_activeCard != null)
+        {
+            Destroy(_activeCard);
+        }
+
+        StartCoroutine(AdvanceQueueRoutine());
+    }
+
+    public void HandleSubjectProcessedReject(SubjectEntity processedSubject)
+    {
+
         if (processedSubject != null)
         {
             Destroy(processedSubject.gameObject, destroyDelay);

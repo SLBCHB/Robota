@@ -79,7 +79,9 @@ public class Robotnik: MonoBehaviour
 
     public int getEarnedProgress()
     {
-        return 1;
+        if (robotnikProperties.validCard)
+            return 1;
+        else return 0;
     }
 }
 

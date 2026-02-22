@@ -2339,6 +2339,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 344443326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &652646659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652646661}
+  - component: {fileID: 652646660}
+  m_Layer: 0
+  m_Name: RobotMan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &652646660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652646659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd28db829a88e3c44886db7599b22aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RobotMan
+  robotnikPrefab: {fileID: 1157334538550713681, guid: 0750278927be1ec4db0976234cf512ae, type: 3}
+  spawnPoint: {fileID: 0}
+  deskSpawnPoints: []
+  toilets: []
+--- !u!4 &652646661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652646659}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.71612, y: -18.10337, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &667644274
 GameObject:
   m_ObjectHideFlags: 0
@@ -5513,7 +5561,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 503866059}
         m_TargetAssemblyTypeName: SubjectManager, Assembly-CSharp
-        m_MethodName: HandleSubjectProcessed
+        m_MethodName: HandleSubjectProcessedPassed
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1874482330}
@@ -5879,7 +5927,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 503866059}
         m_TargetAssemblyTypeName: SubjectManager, Assembly-CSharp
-        m_MethodName: HandleSubjectProcessed
+        m_MethodName: HandleSubjectProcessedReject
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1874482330}
@@ -8264,6 +8312,7 @@ SceneRoots:
   - {fileID: 371571833}
   - {fileID: 1896770094}
   - {fileID: 1654692337}
+  - {fileID: 652646661}
   - {fileID: 1027132015}
   - {fileID: 1681748527}
   - {fileID: 587282556}

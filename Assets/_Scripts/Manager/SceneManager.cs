@@ -11,6 +11,8 @@ public enum GameScene
     Intro,
     johny,
     Map,
+    GoodEnd,
+    BadEnd
 }
 
 public class SceneController : Singleton<SceneController>
