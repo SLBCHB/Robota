@@ -73,7 +73,6 @@ public class CameraController : MonoBehaviour
         _cursorDefaultRT.pivot = new Vector2(0f, 1f);
         _cursorPointerRT.pivot = new Vector2(0f, 1f);
 
-        // --- THE BULLETPROOF FIX: Force cursors to ignore all raycasts! ---
         CanvasGroup defGroup = defCursorObj.AddComponent<CanvasGroup>();
         defGroup.interactable = false;
         defGroup.blocksRaycasts = false;
@@ -122,6 +121,7 @@ public class CameraController : MonoBehaviour
         if (activeTool == ToolType.Fingerprint)
         {
             activeTool = ToolType.Claw;
+            
             Debug.Log("Retracted the Fingerprint Scanner.");
         }
         else
@@ -152,43 +152,38 @@ public class CameraController : MonoBehaviour
 
     private void UpdateCursorVisuals(Vector2 mousePos)
     {
-        // 2. CRITICAL FIX: Properly translate raw screen pixels into Canvas UI coordinates
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             cursorCanvas.transform as RectTransform, 
             mousePos, 
             cursorCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _mainCam, 
             out Vector2 localPos);
 
-        // Apply the perfectly scaled local position to the anchored position
         _cursorDefaultRT.anchoredPosition = localPos;
         _cursorPointerRT.anchoredPosition = localPos;
 
-        // The rest of your code remains exactly the same!
         bool isOverInteractable = _hoveredWorldObject != null && _hoveredWorldObject.CompareTag(interactableTag);
         bool shouldShowPointer = _isOverUI || isOverInteractable;
-
         bool isOverTable = (mousePos.y / Screen.height) <= tableHeightRatio;
 
-        if (FingerprintController.Instance != null) 
-        {
-            FingerprintController.Instance.SetActiveState(activeTool == ToolType.Fingerprint);
-        }
+        bool showFingerprint = (activeTool == ToolType.Fingerprint);
+        bool showClaw = (!isOverTable && activeTool == ToolType.Claw);
+        bool showScanner = (!isOverTable && activeTool == ToolType.Scanner);
+        
+        bool showDefaultCursor = (isOverTable && !showFingerprint); 
 
-        if (isOverTable)
+        if (FingerprintController.Instance != null) FingerprintController.Instance.SetActiveState(showFingerprint);
+        if (ClawController.Instance != null) ClawController.Instance.SetActiveState(showClaw);
+        if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(showScanner);
+
+        if (showDefaultCursor)
         {
             _cursorDefaultRT.gameObject.SetActive(!shouldShowPointer);
             _cursorPointerRT.gameObject.SetActive(shouldShowPointer);
-        
-            if (ClawController.Instance != null) ClawController.Instance.SetActiveState(false); 
-            if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(false);
         }
         else
         {
             _cursorDefaultRT.gameObject.SetActive(false);
             _cursorPointerRT.gameObject.SetActive(false);
-        
-            if (ClawController.Instance != null) ClawController.Instance.SetActiveState(activeTool == ToolType.Claw);
-            if (ScannerController.Instance != null) ScannerController.Instance.SetActiveState(activeTool == ToolType.Scanner);
         }
     }
     
