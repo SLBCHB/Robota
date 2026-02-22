@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6463a8d2412778b49a4752ac4a0bf23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SquishWalk
+  agent: {fileID: 0}
   walkSpeed: 10
   bounceHeight: 0.3
   squishAmount: 0.2
