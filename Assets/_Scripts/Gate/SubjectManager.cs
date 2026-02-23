@@ -59,10 +59,13 @@ public class SubjectManager : MonoBehaviour
 
     public void HandleSubjectProcessedPassed(SubjectEntity processedSubject)
     {
+        Debug.Log("[SubjectManager] Subject passed processing: ");
 
         if (processedSubject != null)
         {
+            Debug.Log("[SubjectManager] Subject passed processing: " + processedSubject.gameObject.name);
             RobotMan.Instance.HireEmployee(processedSubject.gameObject.GetComponent<Robotnik>());
+            
         }
 
         if (_activeCard != null)

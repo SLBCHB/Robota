@@ -29,7 +29,7 @@ public class InfoScreen : MonoBehaviour
         quta.value = GameManager.Instance.getFitness();
     }
 
-    void workers()
+    public void workers()
     {
         quotaSreen.SetActive(false);
         workersSreen.SetActive(true);
@@ -41,7 +41,7 @@ public class InfoScreen : MonoBehaviour
         Instantiate(prefab, parent.transform);
     }
 
-    void quota()
+   public void quota()
     {
         workersSreen.SetActive(false);
         quotaSreen.SetActive(true);

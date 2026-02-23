@@ -29,6 +29,7 @@ public class RobotMan : Singleton<RobotMan>
 
     public void HireEmployee(Robotnik robotnik)
     {
+        Debug.Log($"Attempting to hire {robotnik.name}...");
         List<int> freeIndexes = new List<int>();
         for (int i = 0; i < deskOccupiedStatus.Count; i++)
         {
