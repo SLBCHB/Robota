@@ -32,7 +32,7 @@ public class SubjectManager : MonoBehaviour
 
     public void Init()
     {
-        // 1. Spawne prvního na přepážku
+        // 1. Spawne prvního na přepážku 
         _activeSubject = SpawnSubjectAt(activeSpot);
         if (_activeSubject != null)
         {
